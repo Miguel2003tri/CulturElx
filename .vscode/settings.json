@@ -10,6 +10,7 @@
   },
   "conventionalCommits.scopes": [
     "web",
-    "añadir user a schema"
+    "añadir user a schema",
+    "add modelos"
   ]
 }
