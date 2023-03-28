@@ -48,5 +48,14 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({ eventos }: CellSuccessProps<FindEventos>) => {
-  return <Eventos eventos={eventos} />
+
+  return (
+    <ul>
+      {eventos.map((item) => {
+        return <li key={item.id}>{JSON.stringify(item)}</li>
+      })}
+    </ul>
+  )
 }
+
+// return <Eventos eventos={eventos} />
