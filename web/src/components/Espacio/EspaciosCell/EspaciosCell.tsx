@@ -36,5 +36,15 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({ espacios }: CellSuccessProps<FindEspacios>) => {
-  return <Espacios espacios={espacios} />
+  return (
+    <>
+      {espacios.map((espacio) => (
+        <article key={espacio.id}>
+          <p className="flex h-screen flex-col items-center justify-center">
+            {espacio.id}, {espacio.nombre}, {espacio.ubicacion}
+          </p>
+        </article>
+      ))}
+    </>
+  )
 }
