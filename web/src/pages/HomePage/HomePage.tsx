@@ -1,4 +1,4 @@
-import { Link } from '@redwoodjs/router'
+import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
 const HomePage = () => {
@@ -7,7 +7,7 @@ const HomePage = () => {
       <MetaTags title="Home" description="Home page" />
 
       <div className=" flex h-screen flex-col items-center justify-center bg-amber-500">
-        <Link to="#" className="absolute top-10 right-20">
+        <Link to={routes.login()} className="absolute top-10 right-20">
           Log in
         </Link>
         <Link to="#" className="absolute right-40 top-10">
