@@ -10,6 +10,8 @@
 import { Router, Route } from '@redwoodjs/router'
 
 import { useAuth } from './auth'
+import HomePage from './pages/HomePage/HomePage'
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 
 const Routes = () => {
   return (

@@ -38,16 +38,16 @@ model Eventos {
   tipo_eventoId Int
   fecha         String
   pases         String
-  sala          String
+  sala          String?
   duracion      String
-  ubicacion     Espacios    @relation(fields: [ubicacionId], references: [ubicacion])
-  ubicacionId   String
-  director      String
+  ubicacion     Espacios?   @relation(fields: [ubicacionId], references: [ubicacion])
+  ubicacionId   String?
+  director      String?
   sinopsis      String
-  trailer       String
-  reparto       String
+  trailer       String?
+  reparto       String?
   precio        Int
-  img           String
+  img           String?
 }
 
 model User {
