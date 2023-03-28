@@ -53,7 +53,7 @@ const LoginPage = () => {
         <div className="rw-scaffold rw-login-container">
           <div className="rw-segment">
             <header className="rw-segment-header">
-              <h2 className="rw-heading rw-heading-secondary">Login</h2>
+              <h2 className="rw-heading rw-heading-secondary text-center ">Login</h2>
             </header>
 
             <div className="rw-segment-main">
@@ -106,7 +106,7 @@ const LoginPage = () => {
                       to={routes.forgotPassword()}
                       className="rw-forgot-link"
                     >
-                      Forgot Contraseña?
+                      Olvidaste contraseña?
                     </Link>
                   </div>
 
@@ -120,9 +120,9 @@ const LoginPage = () => {
             </div>
           </div>
           <div className="rw-login-link">
-            <span>Don&apos;t have an account?</span>{' '}
+            <span>No tienes una cuenta ?</span>{' '}
             <Link to={routes.signup()} className="rw-link">
-              Sign up!
+              Registrate!
             </Link>
           </div>
         </div>

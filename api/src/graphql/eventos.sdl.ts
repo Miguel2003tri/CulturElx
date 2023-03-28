@@ -1,6 +1,7 @@
 export const schema = gql`
   type Evento {
-    id: Int!
+    id:Int!
+    espacioId: Int!
     nombre: String!
     horarios: String!
     Tipo_evento: TipoEvento!
@@ -9,8 +10,7 @@ export const schema = gql`
     pases: String!
     sala: String!
     duracion: String!
-    ubicacion: Espacio!
-    ubicacionId: String!
+    Espacio: Espacio!
     director: String!
     sinopsis: String!
     trailer: String!
@@ -32,7 +32,7 @@ export const schema = gql`
     pases: String!
     sala: String!
     duracion: String!
-    ubicacionId: String!
+    espacioId: Int!
     director: String!
     sinopsis: String!
     trailer: String!
@@ -49,7 +49,7 @@ export const schema = gql`
     pases: String
     sala: String
     duracion: String
-    ubicacionId: String
+    espacioId: Int
     director: String
     sinopsis: String
     trailer: String

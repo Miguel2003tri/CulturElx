@@ -16,7 +16,10 @@ export const QUERY = gql`
       pases
       sala
       duracion
-      ubicacionId
+      Espacio {
+        id
+        nombre
+      }
       director
       sinopsis
       trailer

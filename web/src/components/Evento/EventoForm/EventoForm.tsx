@@ -162,22 +162,22 @@ const EventoForm = (props: EventoFormProps) => {
         <FieldError name="duracion" className="rw-field-error" />
 
         <Label
-          name="ubicacionId"
+          name="espacioId"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
           Ubicacion id
         </Label>
 
-        <TextField
-          name="ubicacionId"
-          defaultValue={props.evento?.ubicacionId}
+        <NumberField
+          name="espacioId"
+          defaultValue={props.evento?.espacioId}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
 
-        <FieldError name="ubicacionId" className="rw-field-error" />
+        <FieldError name="espacioId" className="rw-field-error" />
 
         <Label
           name="director"

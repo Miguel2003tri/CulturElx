@@ -17,8 +17,13 @@ export const evento: QueryResolvers['evento'] = ({ id }) => {
 }
 
 export const createEvento: MutationResolvers['createEvento'] = ({ input }) => {
+  const { tipo_eventoId, espacioId, ...rest } = input
   return db.evento.create({
-    data: input,
+    data: {
+      ...rest,
+      Tipo_evento: { connect: { id: tipo_eventoId } },
+      Espacio: { connect: { id: espacioId } }
+    },
   })
 }
 
@@ -42,7 +47,8 @@ export const Evento: EventoRelationResolvers = {
   Tipo_evento: (_obj, { root }) => {
     return db.evento.findUnique({ where: { id: root?.id } }).Tipo_evento()
   },
-  ubicacion: (_obj, { root }) => {
-    return db.evento.findUnique({ where: { id: root?.id } }).ubicacion()
+  Espacio: (_obj, { root }) => {
+    return db.evento.findUnique({ where: { id: root?.id } }).Espacio()
   },
 }
+

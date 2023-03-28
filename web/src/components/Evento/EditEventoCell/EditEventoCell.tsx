@@ -18,7 +18,7 @@ export const QUERY = gql`
       pases
       sala
       duracion
-      ubicacionId
+      espacioId
       director
       sinopsis
       trailer
@@ -39,7 +39,7 @@ const UPDATE_EVENTO_MUTATION = gql`
       pases
       sala
       duracion
-      ubicacionId
+      espacioId
       director
       sinopsis
       trailer

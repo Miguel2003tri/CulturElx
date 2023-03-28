@@ -70,13 +70,13 @@ const EventosList = ({ eventos }: FindEventos) => {
               <td>{truncate(evento.pases)}</td>
               <td>{truncate(evento.sala)}</td>
               <td>{truncate(evento.duracion)}</td>
-              <td>{truncate(evento.ubicacionId)}</td>
+              <td>{truncate(evento.Espacio.nombre)}</td>
               <td>{truncate(evento.director)}</td>
               <td>{truncate(evento.sinopsis)}</td>
-              <td>{truncate(evento.trailer)}</td>
+              <td><a target={'_blank'} rel="noopener noreferrer" href={evento.trailer}>Trailer</a></td>
               <td>{truncate(evento.reparto)}</td>
               <td>{truncate(evento.precio)}</td>
-              <td>{truncate(evento.img)}</td>
+              <td><img src={evento.img} className="h-12 w-12"></img></td>
               <td>
                 <nav className="rw-table-actions">
                   <Link
