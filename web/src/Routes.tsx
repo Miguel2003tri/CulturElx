@@ -18,6 +18,10 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 const Routes = () => {
   return (
     <Router useAuth={useAuth}>
+      <Route path="/login" page={LoginPage} name="login" />
+      <Route path="/signup" page={SignupPage} name="signup" />
+      <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
+      <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
       <Set wrap={ScaffoldLayout} title="Eventos" titleTo="eventos" buttonLabel="New Evento" buttonTo="newEvento">
         <Route path="/eventos/new" page={EventoNewEventoPage} name="newEvento" />
         <Route path="/eventos/{id:Int}/edit" page={EventoEditEventoPage} name="editEvento" />
