@@ -40,15 +40,12 @@ model Evento {
   pases         String
   sala          String?
   duracion      String
-<<<<<<< HEAD
-  ubicacion     Espacios?   @relation(fields: [ubicacionId], references: [ubicacion])
+  ubicacion     Espacios?  @relation(fields: [ubicacionId], references: [ubicacion])
   ubicacionId   String?
   director      String?
-=======
   ubicacion     Espacio    @relation(fields: [ubicacionId], references: [ubicacion])
   ubicacionId   String
   director      String
->>>>>>> 7cd61d1d7dfe84d77c2bbbb2252e1a9fd6fd6980
   sinopsis      String
   trailer       String?
   reparto       String?
