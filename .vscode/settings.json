@@ -9,6 +9,7 @@
     "editor.formatOnSave": true
   },
   "conventionalCommits.scopes": [
-    "web"
+    "web",
+    "añadir user a schema"
   ]
 }
