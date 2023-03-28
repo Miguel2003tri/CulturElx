@@ -12,37 +12,43 @@ generator client {
 // to create migrations for them and apply to your dev DB.
 // TODO: Please remove the following example:
 
-model Tipo_evento {
-  id       Int        @id @default(autoincrement())
+model TipoEvento {
+  id       Int       @id @default(autoincrement())
   nombre   String
-  Espacios Espacios[]
-  Eventos  Eventos[]
+  Espacios Espacio[]
+  Eventos  Evento[]
 }
 
-model Espacios {
-  id            Int         @id @default(autoincrement())
+model Espacio {
+  id            Int        @id @default(autoincrement())
   nombre        String
-  tipoDeEvento  Tipo_evento @relation(fields: [tipo_eventoId], references: [id])
+  tipoDeEvento  TipoEvento @relation(fields: [tipo_eventoId], references: [id], onDelete: Cascade)
   tipo_eventoId Int
   lat           Decimal
   lng           Decimal
-  ubicacion     String      @unique
-  Eventos       Eventos[]
+  ubicacion     String     @unique
+  Eventos       Evento[]
 }
 
-model Eventos {
-  id            Int         @id @default(autoincrement())
+model Evento {
+  id            Int        @id @default(autoincrement())
   nombre        String
   horarios      String
-  Tipo_evento   Tipo_evento @relation(fields: [tipo_eventoId], references: [id])
+  Tipo_evento   TipoEvento @relation(fields: [tipo_eventoId], references: [id])
   tipo_eventoId Int
   fecha         String
   pases         String
   sala          String?
   duracion      String
+<<<<<<< HEAD
   ubicacion     Espacios?   @relation(fields: [ubicacionId], references: [ubicacion])
   ubicacionId   String?
   director      String?
+=======
+  ubicacion     Espacio    @relation(fields: [ubicacionId], references: [ubicacion])
+  ubicacionId   String
+  director      String
+>>>>>>> 7cd61d1d7dfe84d77c2bbbb2252e1a9fd6fd6980
   sinopsis      String
   trailer       String?
   reparto       String?
