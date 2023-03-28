@@ -4,23 +4,15 @@ import { useAuth } from 'src/auth'
 import EventosCell from 'src/components/Evento/EventosCell'
 
 const HomePage = () => {
-  const {logOut,isAuthenticated} = useAuth()
-
   return (
     <>
 
       <MetaTags title="Home" description="Home page" />
 
       <div className=" flex h-screen flex-col items-center justify-center bg-amber-500">
-        {/* <Link to={routes.login()} className="absolute top-10 right-20">
-          Log in
-        </Link> */}
-         { isAuthenticated ? <button className='absolute top-10 right-20' onClick={logOut}> Log out</button>
-          :
-          <Link to={routes.login()} className="absolute top-10 right-20">
+        <Link to={routes.login()} className="absolute top-10 right-20">
           Log in
         </Link>
-        }
         <Link to="#" className="absolute right-40 top-10">
           Inicio
         </Link>
