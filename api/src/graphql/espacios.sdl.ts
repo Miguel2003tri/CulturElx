@@ -12,8 +12,8 @@ export const schema = gql`
   }
 
   type Query {
-    espacios: [Espacio!]! @requireAuth
-    espacio(id: Int!): Espacio @requireAuth
+    espacios: [Espacio!]! @skipAuth
+    espacio(id: Int!): Espacio @skipAuth
   }
 
   input CreateEspacioInput {

@@ -1,6 +1,6 @@
 export const schema = gql`
   type Evento {
-    id:Int!
+    id: Int!
     espacioId: Int!
     nombre: String!
     horarios: String!
@@ -20,8 +20,8 @@ export const schema = gql`
   }
 
   type Query {
-    eventos: [Evento!]! @requireAuth
-    evento(id: Int!): Evento @requireAuth
+    eventos: [Evento!]! @skipAuth
+    evento(id: Int!): Evento @skipAuth
   }
 
   input CreateEventoInput {
