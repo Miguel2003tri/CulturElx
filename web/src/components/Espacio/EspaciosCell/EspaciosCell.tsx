@@ -42,10 +42,10 @@ export const Success = ({ espacios }: CellSuccessProps<FindEspacios>) => {
       {espacios.map((espacio) => (
         <article
           key={espacio.id}
-          className="border-grey-900 flex items-center justify-center border-2"
+          className="flex items-center justify-center border-2"
         >
-          <div className="mr-7">
-            <img src={espacio.img} alt={espacio.nombre} className="h-20 w-30" ></img>
+          <div className="mr-7 mt-14 h-48 w-48">
+            <img src={espacio.img} alt=""></img>
           </div>
           <div>
             <Link to={routes.espacio({ id: espacio.id })} className="text-xl">
@@ -53,9 +53,6 @@ export const Success = ({ espacios }: CellSuccessProps<FindEspacios>) => {
             </Link>
             <p className="text-gray-500">{espacio.ubicacion}</p>
           </div>
-          <br />
-          <br />
-          <br />
         </article>
       ))}
     </>

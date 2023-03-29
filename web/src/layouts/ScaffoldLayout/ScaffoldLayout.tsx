@@ -1,5 +1,6 @@
 import { Link, routes } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
+
 import { useAuth } from 'src/auth'
 
 type LayoutProps = {
@@ -17,24 +18,53 @@ const ScaffoldLayout = ({
   buttonTo,
   children,
 }: LayoutProps) => {
- const {logOut,isAuthenticated} = useAuth()
+  const { logOut, isAuthenticated } = useAuth()
   return (
     <div className="rw-scaffold">
-      <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
-      <header className="rw-header">
-        <h1 className="rw-heading rw-heading-primary">
-          <Link to={routes[titleTo]()} className="rw-link">
-            {title}
-          </Link>
-        </h1>
-
-        { isAuthenticated ? <button onClick={logOut}> Log out</button>
-          :
-          <Link to={routes.login()} className="rw-button rw-button-green">
+      <div className="h-28 bg-amber-500">
+        <img
+          src="/imgs/Logo-Horizontal.png"
+          alt=""
+          className="absolute top-9 left-48 max-h-64"
+        ></img>
+        <img
+          src="/imgs/lupa.png"
+          alt=""
+          className="absolute top-7 right-20 max-w-xs"
+        ></img>
+        {isAuthenticated ? (
+          <button className="absolute top-10 right-40" onClick={logOut}>
+            {' '}
+            Log out
+          </button>
+        ) : (
+          <Link to={routes.login()} className="absolute top-10 right-40">
             Login
-        </Link>
-        }
-      </header>
+          </Link>
+        )}
+      </div>
+      <br />
+      <Link to={routes.inicio()} className="absolute right-56 top-10">
+        Inicio
+      </Link>
+      <div className="mb-8 flex flex-row items-center justify-center font-medium">
+        <div className="mr-40 flex flex-row items-center justify-center pr-2 font-medium">
+          <img src="/imgs/lineas.png" alt=""></img>
+          <Link to={routes.eventos()} className="">
+            Eventos
+          </Link>
+        </div>
+        <div className="flex flex-row items-center justify-center rounded-lg bg-amber-200 pr-2 font-medium">
+          <img src="/imgs/edificio.png" alt=""></img>
+          <Link to={routes.espacios()} className="">
+            Espacios
+          </Link>
+        </div>
+      </div>
+
+      <p className="mb-6 flex flex-col items-center justify-center font-medium text-yellow-800">
+        Explora los espacios culturales de Elche
+      </p>
       <main className="rw-main">{children}</main>
     </div>
   )
