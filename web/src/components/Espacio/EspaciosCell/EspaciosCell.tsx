@@ -45,11 +45,9 @@ export const Success = ({ espacios }: CellSuccessProps<FindEspacios>) => {
           className="border-grey-900 flex items-center justify-center border-2"
         >
           <div className="mr-7">
-            <img src={espacio.img} alt=""></img>
+            <img src={espacio.img} alt={espacio.nombre} className="h-20 w-30" ></img>
           </div>
           <div>
-            <p>{espacio.img}</p>
-            {/* <p className="text-xl">{espacio.nombre}</p> */}
             <Link to={routes.espacio({ id: espacio.id })} className="text-xl">
               {espacio.nombre}
             </Link>

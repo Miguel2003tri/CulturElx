@@ -1,7 +1,7 @@
-import NewEvento from 'src/components/Evento/NewEvento'
+import NewEventoCell from 'src/components/Evento/NewEventoCell'
 
 const NewEventoPage = () => {
-  return <NewEvento />
+  return <NewEventoCell />
 }
 
 export default NewEventoPage

@@ -50,11 +50,28 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({ eventos }: CellSuccessProps<FindEventos>) => {
 
   return (
-    <ul>
-      {eventos.map((item) => {
-        return <li key={item.id}>{JSON.stringify(item)}</li>
-      })}
-    </ul>
+    <>
+      {eventos.map((evento) => (
+        <article
+          key={evento.id}
+          className="border-grey-900 flex items-center justify-center border-2"
+        >
+          <div className="mr-7">
+            <img src={evento.img} alt={evento.nombre} className="h-28 w-32"></img>
+          </div>
+          <div>
+            {/* <p className="text-xl">{evento.nombre}</p> */}
+            <Link to={routes.evento({ id: evento.id })} className="text-xl">
+              {evento.nombre}
+            </Link>
+
+          </div>
+          <br />
+          <br />
+          <br />
+        </article>
+      ))}
+    </>
   )
 }
 

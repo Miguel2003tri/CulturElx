@@ -4,7 +4,13 @@ import { toast } from '@redwoodjs/web/toast'
 
 import EventoForm from 'src/components/Evento/EventoForm'
 
-import type { CreateEventoInput } from 'types/graphql'
+import type { CreateEventoInput, NewEventoData } from 'types/graphql'
+
+interface NewEventoProps{
+  espacios:NewEventoData["espacios"]
+  tipoEventos:NewEventoData["tipoEventos"]
+}
+
 
 const CREATE_EVENTO_MUTATION = gql`
   mutation CreateEventoMutation($input: CreateEventoInput!) {
@@ -14,7 +20,7 @@ const CREATE_EVENTO_MUTATION = gql`
   }
 `
 
-const NewEvento = () => {
+const NewEvento: React.FC<NewEventoProps> = ({ espacios, tipoEventos }) => {
   const [createEvento, { loading, error }] = useMutation(
     CREATE_EVENTO_MUTATION,
     {
@@ -38,7 +44,13 @@ const NewEvento = () => {
         <h2 className="rw-heading rw-heading-secondary">New Evento</h2>
       </header>
       <div className="rw-segment-main">
-        <EventoForm onSave={onSave} loading={loading} error={error} />
+        <EventoForm
+          onSave={onSave}
+          loading={loading}
+          error={error}
+          espacios={espacios}
+          tipoEventos={tipoEventos}
+        />
       </div>
     </div>
   )

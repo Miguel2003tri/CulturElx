@@ -25,6 +25,15 @@ export const QUERY = gql`
       reparto
       precio
       img
+
+    }
+    espacios{
+      id
+      nombre
+    }
+    tipoEventos{
+      id
+      nombre
     }
   }
 `
@@ -56,7 +65,7 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div className="rw-cell-error">{error?.message}</div>
 )
 
-export const Success = ({ evento }: CellSuccessProps<EditEventoById>) => {
+export const Success = ({ evento, espacios,tipoEventos }: CellSuccessProps<EditEventoById>) => {
   const [updateEvento, { loading, error }] = useMutation(
     UPDATE_EVENTO_MUTATION,
     {
@@ -87,6 +96,8 @@ export const Success = ({ evento }: CellSuccessProps<EditEventoById>) => {
       <div className="rw-segment-main">
         <EventoForm
           evento={evento}
+          espacios={espacios}
+          tipoEventos={tipoEventos}
           onSave={onSave}
           error={error}
           loading={loading}

@@ -33,6 +33,7 @@ const Routes = () => {
         <Route path="/espacios/{id:Int}/edit" page={EspacioEditEspacioPage} name="editEspacio" />
         <Route path="/espacios/{id:Int}" page={EspacioEspacioPage} name="espacio" />
         <Route path="/espacios" page={EspacioEspaciosPage} name="espacios" />
+
       </Set>
       <Set wrap={ScaffoldLayout} title="TipoEventos" titleTo="tipoEventos" buttonLabel="New TipoEvento" buttonTo="newTipoEvento">
         <Route path="/tipo-eventos/new" page={TipoEventoNewTipoEventoPage} name="newTipoEvento" />

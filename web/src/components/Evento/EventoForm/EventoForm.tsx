@@ -6,6 +6,7 @@ import {
   TextField,
   NumberField,
   Submit,
+  SelectField,
 } from '@redwoodjs/forms'
 
 import type { EditEventoById, UpdateEventoInput } from 'types/graphql'
@@ -15,6 +16,9 @@ type FormEvento = NonNullable<EditEventoById['evento']>
 
 interface EventoFormProps {
   evento?: EditEventoById['evento']
+  espacios: EditEventoById['espacios']
+  tipoEventos: EditEventoById['tipoEventos']
+
   onSave: (data: UpdateEventoInput, id?: FormEvento['id']) => void
   error: RWGqlError
   loading: boolean
@@ -76,16 +80,24 @@ const EventoForm = (props: EventoFormProps) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Tipo evento id
+          Tipo evento
         </Label>
 
-        <NumberField
+        <SelectField
           name="tipo_eventoId"
           defaultValue={props.evento?.tipo_eventoId}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
+          validation={{ required: true , valueAsNumber:true }}
+
+        >
+          {props.tipoEventos.map(tipo=>
+            {
+              return(
+                <option key={tipo.id} value={tipo.id} >{tipo.nombre}  </option>
+              )
+            })}
+        </SelectField>
 
         <FieldError name="tipo_eventoId" className="rw-field-error" />
 
@@ -166,16 +178,23 @@ const EventoForm = (props: EventoFormProps) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Ubicacion id
+          Ubicacion
         </Label>
 
-        <NumberField
+        <SelectField
           name="espacioId"
           defaultValue={props.evento?.espacioId}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
+          validation={{ required: true, valueAsNumber:true}}
+          >
+          {props.espacios.map(espacio=>
+            {
+              return(
+                <option key={espacio.id} value={espacio.id} >{espacio.nombre}  </option>
+              )
+            })}
+        </SelectField>
 
         <FieldError name="espacioId" className="rw-field-error" />
 
