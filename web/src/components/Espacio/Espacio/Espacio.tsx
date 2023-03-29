@@ -72,6 +72,10 @@ const Espacio = ({ espacio }: Props) => {
               <th>Ubicacion</th>
               <td>{espacio.ubicacion}</td>
             </tr>
+            <tr>
+              <th>Imagen</th>
+              <td>{espacio.img}</td>
+            </tr>
           </tbody>
         </table>
       </div>

@@ -1,3 +1,5 @@
+import type { EditEspacioById, UpdateEspacioInput } from 'types/graphql'
+
 import {
   Form,
   FormError,
@@ -7,8 +9,6 @@ import {
   NumberField,
   Submit,
 } from '@redwoodjs/forms'
-
-import type { EditEspacioById, UpdateEspacioInput } from 'types/graphql'
 import type { RWGqlError } from '@redwoodjs/forms'
 
 type FormEspacio = NonNullable<EditEspacioById['espacio']>
@@ -124,6 +124,24 @@ const EspacioForm = (props: EspacioFormProps) => {
         />
 
         <FieldError name="ubicacion" className="rw-field-error" />
+
+        <Label
+          name="img"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Imagen
+        </Label>
+
+        <TextField
+          name="img"
+          defaultValue={props.espacio?.img}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="img" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">

@@ -3,7 +3,7 @@ import type { FindEspacios } from 'types/graphql'
 import { Link, routes } from '@redwoodjs/router'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
-import Espacios from 'src/components/Espacio/Espacios'
+//import Espacios from 'src/components/Espacio/Espacios'
 
 export const QUERY = gql`
   query FindEspacios {
@@ -14,6 +14,7 @@ export const QUERY = gql`
       lat
       lng
       ubicacion
+      img
     }
   }
 `
@@ -39,10 +40,24 @@ export const Success = ({ espacios }: CellSuccessProps<FindEspacios>) => {
   return (
     <>
       {espacios.map((espacio) => (
-        <article key={espacio.id}>
-          <p className="flex h-screen flex-col items-center justify-center">
-            {espacio.id}, {espacio.nombre}, {espacio.ubicacion}
-          </p>
+        <article
+          key={espacio.id}
+          className="border-grey-900 flex items-center justify-center border-2"
+        >
+          <div className="mr-7">
+            <img src={espacio.img} alt=""></img>
+          </div>
+          <div>
+            <p>{espacio.img}</p>
+            {/* <p className="text-xl">{espacio.nombre}</p> */}
+            <Link to={routes.espacio({ id: espacio.id })} className="text-xl">
+              {espacio.nombre}
+            </Link>
+            <p className="text-gray-500">{espacio.ubicacion}</p>
+          </div>
+          <br />
+          <br />
+          <br />
         </article>
       ))}
     </>

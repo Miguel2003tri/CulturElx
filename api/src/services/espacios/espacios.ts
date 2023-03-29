@@ -28,6 +28,8 @@ export const updateEspacio: MutationResolvers['updateEspacio'] = ({
   id,
   input,
 }) => {
+  console.log(input)
+
   return db.espacio.update({
     data: input,
     where: { id },

@@ -16,6 +16,7 @@ export const QUERY = gql`
       lat
       lng
       ubicacion
+      img
     }
   }
 `
@@ -28,6 +29,7 @@ const UPDATE_ESPACIO_MUTATION = gql`
       lat
       lng
       ubicacion
+      img
     }
   }
 `

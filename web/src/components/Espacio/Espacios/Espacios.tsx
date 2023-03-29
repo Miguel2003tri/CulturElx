@@ -1,14 +1,14 @@
+import type {
+  DeleteEspacioMutationVariables,
+  FindEspacios,
+} from 'types/graphql'
+
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { QUERY } from 'src/components/Espacio/EspaciosCell'
 import { truncate } from 'src/lib/formatters'
-
-import type {
-  DeleteEspacioMutationVariables,
-  FindEspacios,
-} from 'types/graphql'
 
 const DELETE_ESPACIO_MUTATION = gql`
   mutation DeleteEspacioMutation($id: Int!) {
@@ -50,6 +50,7 @@ const EspaciosList = ({ espacios }: FindEspacios) => {
             <th>Lat</th>
             <th>Lng</th>
             <th>Ubicacion</th>
+            <th>img</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -62,6 +63,7 @@ const EspaciosList = ({ espacios }: FindEspacios) => {
               <td>{truncate(espacio.lat)}</td>
               <td>{truncate(espacio.lng)}</td>
               <td>{truncate(espacio.ubicacion)}</td>
+              <td>{truncate(espacio.img)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

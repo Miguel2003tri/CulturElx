@@ -8,6 +8,7 @@ export const schema = gql`
     lng: Float!
     ubicacion: String!
     Eventos: [Evento]!
+    img: String
   }
 
   type Query {
@@ -21,6 +22,7 @@ export const schema = gql`
     lat: Float!
     lng: Float!
     ubicacion: String!
+    img: String
   }
 
   input UpdateEspacioInput {
@@ -29,6 +31,7 @@ export const schema = gql`
     lat: Float
     lng: Float
     ubicacion: String
+    img: String
   }
 
   type Mutation {

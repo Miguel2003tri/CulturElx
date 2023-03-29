@@ -28,7 +28,7 @@ model Espacio {
   lng           Decimal
   ubicacion     String     @unique
   Eventos       Evento[]
-  Imagen        String     @default("Null")
+  img           String?    @default("null")
 }
 
 model Evento {

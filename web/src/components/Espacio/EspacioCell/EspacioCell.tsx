@@ -13,6 +13,7 @@ export const QUERY = gql`
       lat
       lng
       ubicacion
+      img
     }
   }
 `
