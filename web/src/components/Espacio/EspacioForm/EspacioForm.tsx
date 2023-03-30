@@ -11,6 +11,8 @@ import {
 } from '@redwoodjs/forms'
 import type { RWGqlError } from '@redwoodjs/forms'
 
+import CustomTextField from 'src/components/TextField/TextField'
+
 type FormEspacio = NonNullable<EditEspacioById['espacio']>
 
 interface EspacioFormProps {
@@ -35,23 +37,11 @@ const EspacioForm = (props: EspacioFormProps) => {
           listClassName="rw-form-error-list"
         />
 
-        <Label
-          name="nombre"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Nombre
-        </Label>
-
-        <TextField
-          name="nombre"
-          defaultValue={props.espacio?.nombre}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-
-        <FieldError name="nombre" className="rw-field-error" />
+        <CustomTextField
+          nombre={'nombre'}
+          valorDefecto={props.espacio?.nombre}
+          label={'Nombre'}
+        ></CustomTextField>
 
         <Label
           name="tipo_eventoId"

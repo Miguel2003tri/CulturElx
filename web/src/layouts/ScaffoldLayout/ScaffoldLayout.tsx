@@ -1,4 +1,4 @@
-import { NavLink,Link, routes, useLocation } from '@redwoodjs/router'
+import { NavLink, Link, routes, useLocation } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
 // IMPORTACION PARA PODER USAR EL FORMULARIO
 // import { useState } from 'react'
@@ -71,21 +71,26 @@ const ScaffoldLayout = ({
       </Link>
 
       <div className="mb-8 flex flex-row items-center justify-center font-medium">
-        <NavLink matchSubPaths className='mr-40 flex flex-row items-center justify-center rounded-lg pr-2 font-medium' activeClassName='bg-amber-200' to={routes.eventos()}>
-            <img src="/imgs/lineas.png" alt=""></img>
-            <p>Eventos</p>
+        <NavLink
+          matchSubPaths
+          className="mr-40 flex flex-row items-center justify-center rounded-lg pr-2 font-medium"
+          activeClassName="bg-amber-200"
+          to={routes.eventos()}
+        >
+          <img src="/imgs/lineas.png" alt=""></img>
+          <p>Eventos</p>
         </NavLink>
 
-        <NavLink matchSubPaths className='flex flex-row items-center justify-center rounded-lg pr-2 font-medium' activeClassName='bg-amber-200' to={routes.espacios()}>
-
-            <img src="/imgs/edificio.png" alt=""></img>
-            <p>Espacios</p>
+        <NavLink
+          matchSubPaths
+          className="flex flex-row items-center justify-center rounded-lg pr-2 font-medium"
+          activeClassName="bg-amber-200"
+          to={routes.espacios()}
+        >
+          <img src="/imgs/edificio.png" alt=""></img>
+          <p>Espacios</p>
         </NavLink>
       </div>
-
-      <p className="mb-6 flex flex-col items-center justify-center font-medium text-yellow-800">
-        Explora los espacios culturales de Elche
-      </p>
       <main className="rw-main">{children}</main>
     </div>
   )
