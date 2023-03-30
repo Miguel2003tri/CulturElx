@@ -12,7 +12,7 @@ export const QUERY = gql`
   query FindEspacioById($id: Int!) {
     espacio: espacio(id: $id) {
       id
-      Eventos{
+      Eventos {
         id
         nombre
       }
@@ -21,7 +21,6 @@ export const QUERY = gql`
 `
 
 export const Loading = () => <div>Loading...</div>
-
 
 export const Empty = () => <div>Espacio not foundt</div>
 
@@ -33,18 +32,16 @@ export const Success = ({ espacio }: CellSuccessProps<FindEspacioById>) => {
   return (
     <>
       {espacio.Eventos.map((evento) => (
-        <Link to={routes.evento({ id: evento.id })} className="text-xl">
-
-
-        <article
+        <Link
           key={evento.id}
-          className="border-grey-900 flex items-center justify-center border-2"
+          to={routes.evento({ id: evento.id })}
+          className="text-xl"
         >
-          <p>{evento.nombre}</p>
-        </article>
+          <article className="border-grey-900 flex items-center justify-center border-2">
+            <p>{evento.nombre}</p>
+          </article>
         </Link>
       ))}
-
     </>
   )
 }
