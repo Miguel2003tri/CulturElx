@@ -30,6 +30,7 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({ espacio }: CellSuccessProps<FindEspacioById>) => {
   return (
     <>
+
       <div className="flex w-full items-center justify-center">
         <p className="pb-10 text-7xl text-black">{espacio.nombre}</p>
       </div>
