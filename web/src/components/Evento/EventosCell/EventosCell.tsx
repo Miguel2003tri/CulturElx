@@ -50,26 +50,23 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({ eventos }: CellSuccessProps<FindEventos>) => {
   return (
     <>
-      {eventos.map((evento) => (
-        <article
-          key={evento.id}
-          className="border-grey-900 flex items-center justify-center border-2"
-        >
-          <div className="mr-7">
-            <img src={evento.img} alt={evento.nombre} className="h-28 w-32"></img>
-          </div>
-          <div>
-            {/* <p className="text-xl">{evento.nombre}</p> */}
-            <Link to={routes.evento({ id: evento.id })} className="text-xl">
-              {evento.nombre}
-            </Link>
-
-          </div>
-          <br />
-          <br />
-          <br />
-        </article>
-      ))}
+      <div className="flex flex-wrap items-center justify-center pl-44">
+        {eventos.map((evento) => (
+          <Link to={routes.evento({ id: evento.id })} key={evento.id}>
+            <article className="w-1/2">
+              <div className="mb-9 flex flex-col items-center justify-center">
+                <img
+                  alt=""
+                  src={evento.img}
+                  className="h-80 w-96 object-cover"
+                ></img>
+                <p>{evento.nombre}</p>
+                <p>Fecha: {evento.fecha}</p>
+              </div>
+            </article>
+          </Link>
+        ))}
+      </div>
     </>
   )
 }
