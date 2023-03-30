@@ -1,20 +1,20 @@
+import { Evento } from '@prisma/client'
 import type { FindEspacioById } from 'types/graphql'
 
+import { Link, routes } from '@redwoodjs/router'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
-import Espacio from 'src/components/Espacio/Espacio'
-import Evento from 'src/components/Evento/Evento'
-
-import { Link, routes } from '@redwoodjs/router'
-import EventoCell from 'src/components/Evento/EventoCell'
-import EventosCell from 'src/components/Evento/EventosCell'
 export const QUERY = gql`
   query FindEspacioById($id: Int!) {
     espacio: espacio(id: $id) {
       id
+      nombre
+>>>>>>> f8e2212d19f79221912c2ab5794506707f7a9f1e
       Eventos {
         id
         nombre
+        img
+        fecha
       }
     }
   }
@@ -31,17 +31,24 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({ espacio }: CellSuccessProps<FindEspacioById>) => {
   return (
     <>
-      {espacio.Eventos.map((evento) => (
-        <Link
-          key={evento.id}
-          to={routes.evento({ id: evento.id })}
-          className="text-xl"
-        >
-          <article className="border-grey-900 flex items-center justify-center border-2">
-            <p>{evento.nombre}</p>
-          </article>
-        </Link>
-      ))}
+
+      <div className="flex w-full items-center justify-center">
+        <p className="pb-10 text-7xl text-black">{espacio.nombre}</p>
+      </div>
+      <div className="flex flex-wrap items-center justify-center pl-44">
+        {espacio.Eventos.map((evento) => (
+          <Link to={routes.evento({ id: evento.id })} key={evento.id}>
+            <article className="w-1/2">
+              <div className="mb-9 flex flex-col items-center justify-center">
+                <img alt="" src={evento.img} className="h-80 w-96"></img>
+                <p>{evento.nombre}</p>
+                <p>Fecha: {evento.fecha}</p>
+              </div>
+            </article>
+          </Link>
+        ))}
+      </div>
+>>>>>>> f8e2212d19f79221912c2ab5794506707f7a9f1e
     </>
   )
 }
