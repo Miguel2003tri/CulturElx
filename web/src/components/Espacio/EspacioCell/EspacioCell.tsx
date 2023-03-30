@@ -30,7 +30,6 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({ espacio }: CellSuccessProps<FindEspacioById>) => {
   return (
     <>
-
       <div className="flex w-full items-center justify-center">
         <p className="pb-10 text-7xl text-black">{espacio.nombre}</p>
       </div>
@@ -39,7 +38,11 @@ export const Success = ({ espacio }: CellSuccessProps<FindEspacioById>) => {
           <Link to={routes.evento({ id: evento.id })} key={evento.id}>
             <article className="w-1/2">
               <div className="mb-9 flex flex-col items-center justify-center">
-                <img alt="" src={evento.img} className="h-80 w-96 object-cover"></img>
+                <img
+                  alt=""
+                  src={evento.img}
+                  className="h-80 w-96 object-cover"
+                ></img>
                 <p>{evento.nombre}</p>
                 <p>Fecha: {evento.fecha}</p>
               </div>
