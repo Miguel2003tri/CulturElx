@@ -56,7 +56,7 @@ export const Success = ({ eventos }: CellSuccessProps<FindEventos>) => {
           className="border-grey-900 flex items-center justify-center border-2"
         >
           <div className="mr-7">
-            <img src={evento.img} alt={evento.nombre} className="h-28 w-32"></img>
+            <img src={evento.img} alt={evento.nombre} className="h-40 w-36 object-cover"></img>
           </div>
           <div>
             {/* <p className="text-xl">{evento.nombre}</p> */}

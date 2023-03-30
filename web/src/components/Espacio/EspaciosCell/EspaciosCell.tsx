@@ -44,8 +44,8 @@ export const Success = ({ espacios }: CellSuccessProps<FindEspacios>) => {
           key={espacio.id}
           className="flex items-center justify-center border-2"
         >
-          <div className="mr-7 mt-14 h-48 w-48">
-            <img src={espacio.img} alt=""></img>
+          <div className="mr-7 mt-14">
+            <img className=' h-48 w-48  object-contain' src={espacio.img} alt=""></img>
           </div>
           <div>
             <Link to={routes.espacio({ id: espacio.id })} className="text-xl">

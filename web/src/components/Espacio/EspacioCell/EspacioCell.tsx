@@ -39,7 +39,7 @@ export const Success = ({ espacio }: CellSuccessProps<FindEspacioById>) => {
           <Link to={routes.evento({ id: evento.id })} key={evento.id}>
             <article className="w-1/2">
               <div className="mb-9 flex flex-col items-center justify-center">
-                <img alt="" src={evento.img} className="h-80 w-96"></img>
+                <img alt="" src={evento.img} className="h-80 w-96 object-cover"></img>
                 <p>{evento.nombre}</p>
                 <p>Fecha: {evento.fecha}</p>
               </div>
