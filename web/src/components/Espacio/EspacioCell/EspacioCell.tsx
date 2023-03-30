@@ -9,7 +9,6 @@ export const QUERY = gql`
     espacio: espacio(id: $id) {
       id
       nombre
->>>>>>> f8e2212d19f79221912c2ab5794506707f7a9f1e
       Eventos {
         id
         nombre
@@ -48,7 +47,6 @@ export const Success = ({ espacio }: CellSuccessProps<FindEspacioById>) => {
           </Link>
         ))}
       </div>
->>>>>>> f8e2212d19f79221912c2ab5794506707f7a9f1e
     </>
   )
 }
