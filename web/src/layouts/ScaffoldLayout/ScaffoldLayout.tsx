@@ -1,4 +1,4 @@
-import { Link, routes } from '@redwoodjs/router'
+import { Link, routes, useLocation } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
 
 import { useAuth } from 'src/auth'
@@ -18,7 +18,10 @@ const ScaffoldLayout = ({
   buttonTo,
   children,
 }: LayoutProps) => {
-  const { logOut, isAuthenticated } = useAuth()
+  const { logOut, isAuthenticated } = useAuth();
+  const location = useLocation();
+  const isEventosPage = location.pathname === routes.eventos();
+
   return (
     <div className="rw-scaffold">
       <div className="h-28 bg-amber-500">
@@ -48,13 +51,13 @@ const ScaffoldLayout = ({
         Inicio
       </Link>
       <div className="mb-8 flex flex-row items-center justify-center font-medium">
-        <div className="mr-40 flex flex-row items-center justify-center pr-2 font-medium">
+        <div className={`mr-40 flex flex-row items-center justify-center pr-2 rounded-lg font-medium ${isEventosPage ? 'bg-amber-200' : ''}`}>
           <img src="/imgs/lineas.png" alt=""></img>
           <Link to={routes.eventos()} className="">
             Eventos
           </Link>
         </div>
-        <div className="flex flex-row items-center justify-center rounded-lg bg-amber-200 pr-2 font-medium">
+        <div className={`mr-40 flex flex-row items-center justify-center rounded-lg pr-2 font-medium ${!isEventosPage ? 'bg-amber-200' : ''}`} >
           <img src="/imgs/edificio.png" alt=""></img>
           <Link to={routes.espacios()} className="">
             Espacios
