@@ -20,8 +20,8 @@ export const schema = gql`
   }
 
   type Query {
-    eventos: [Evento!]! @skipAuth
-    evento(id: Int!): Evento @skipAuth
+    eventos: [Evento!]! @requireAuth
+    evento(id: Int!): Evento @requireAuth
   }
 
   input CreateEventoInput {
