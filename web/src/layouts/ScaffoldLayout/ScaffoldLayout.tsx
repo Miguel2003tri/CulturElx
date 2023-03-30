@@ -50,19 +50,21 @@ const ScaffoldLayout = ({
       <Link to={routes.inicio()} className="absolute right-56 top-10">
         Inicio
       </Link>
+
       <div className="mb-8 flex flex-row items-center justify-center font-medium">
+        <Link to={routes.eventos()}>
         <div className={`mr-40 flex flex-row items-center justify-center pr-2 rounded-lg font-medium ${isEventosPage ? 'bg-amber-200' : ''}`}>
-          <img src="/imgs/lineas.png" alt=""></img>
-          <Link to={routes.eventos()} className="">
-            Eventos
-          </Link>
-        </div>
+            <img src="/imgs/lineas.png" alt=""></img>
+            <p>Eventos</p>
+          </div>
+        </Link>
+
+        <Link to={routes.espacios()}>
         <div className={`mr-40 flex flex-row items-center justify-center rounded-lg pr-2 font-medium ${!isEventosPage ? 'bg-amber-200' : ''}`} >
-          <img src="/imgs/edificio.png" alt=""></img>
-          <Link to={routes.espacios()} className="">
-            Espacios
-          </Link>
-        </div>
+            <img src="/imgs/edificio.png" alt=""></img>
+            <p>Espacios</p>
+          </div>
+        </Link>
       </div>
 
       <p className="mb-6 flex flex-col items-center justify-center font-medium text-yellow-800">
