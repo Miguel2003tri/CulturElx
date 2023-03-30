@@ -1,5 +1,7 @@
 import { Link, routes, useLocation } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
+// IMPORTACION PARA PODER USAR EL FORMULARIO
+// import { useState } from 'react'
 
 import { useAuth } from 'src/auth'
 
@@ -18,10 +20,19 @@ const ScaffoldLayout = ({
   buttonTo,
   children,
 }: LayoutProps) => {
-  const { logOut, isAuthenticated } = useAuth();
-  const location = useLocation();
-  const isEventosPage = location.pathname === routes.eventos();
-
+  const { logOut, isAuthenticated } = useAuth()
+  const location = useLocation()
+  const isEventosPage = location.pathname.startsWith(routes.eventos())
+  // COSAS PARA PODER PONER EL SERCH EN EL HEADER
+  // const [searchQuery, setSearchQuery] = useState('');
+  // const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setSearchQuery(e.target.value);
+  // }
+  // const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   // Do something with the searchQuery, like redirect to a search page
+  //   console.log(searchQuery);
+  // }
   return (
     <div className="rw-scaffold">
       <div className="h-28 bg-amber-500">
@@ -35,6 +46,16 @@ const ScaffoldLayout = ({
           alt=""
           className="absolute top-7 right-20 max-w-xs"
         ></img>
+        {/* FORMULARIO IMPUT  */}
+        {/* <form onSubmit={handleSearchSubmit}>
+          <input
+            type="text"
+            placeholder="Search..."
+            className="absolute top-7 right-40 max-w-xs rounded-md border-gray-300 px-2 py-1"
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+        </form> */}
         {isAuthenticated ? (
           <button className="absolute top-10 right-40" onClick={logOut}>
             {' '}
@@ -53,14 +74,22 @@ const ScaffoldLayout = ({
 
       <div className="mb-8 flex flex-row items-center justify-center font-medium">
         <Link to={routes.eventos()}>
-        <div className={`mr-40 flex flex-row items-center justify-center pr-2 rounded-lg font-medium ${isEventosPage ? 'bg-amber-200' : ''}`}>
+          <div
+            className={`mr-40 flex flex-row items-center justify-center rounded-lg pr-2 font-medium ${
+              isEventosPage ? 'bg-amber-200' : ''
+            }`}
+          >
             <img src="/imgs/lineas.png" alt=""></img>
             <p>Eventos</p>
           </div>
         </Link>
 
         <Link to={routes.espacios()}>
-        <div className={`mr-40 flex flex-row items-center justify-center rounded-lg pr-2 font-medium ${!isEventosPage ? 'bg-amber-200' : ''}`} >
+          <div
+            className={` flex flex-row items-center justify-center rounded-lg pr-2 font-medium ${
+              !isEventosPage ? 'bg-amber-200' : ''
+            }`}
+          >
             <img src="/imgs/edificio.png" alt=""></img>
             <p>Espacios</p>
           </div>

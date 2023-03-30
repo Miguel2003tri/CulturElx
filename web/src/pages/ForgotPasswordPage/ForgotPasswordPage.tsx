@@ -39,57 +39,61 @@ const ForgotPasswordPage = () => {
 
   return (
     <>
-      <MetaTags title="Forgot Contraseña" />
+      <div className="h-screen bg-amber-500">
+        <MetaTags title="Forgot Contraseña" />
 
-      <main className="rw-main">
-        <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
-        <div className="rw-scaffold rw-login-container">
-          <div className="rw-segment">
-            <header className="rw-segment-header">
-              <h2 className="rw-heading rw-heading-secondary">
-                Forgot Contraseña
-              </h2>
-            </header>
+        <main className="rw-main flex text-center justify-center">
+          <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
+          <div className="rw-scaffold rw-login-container">
+            <div className="rw-segment">
+              <header className="rw-segment-header">
+                <h2 className="rw-heading rw-heading-secondary">
+                  Forgot Contraseña
+                </h2>
+              </header>
 
-            <div className="rw-segment-main">
-              <div className="rw-form-wrapper">
-                <Form onSubmit={onSubmit} className="rw-form-wrapper">
-                  <div className="text-left">
-                    <Label
-                      name="nombreUsuario"
-                      className="rw-label"
-                      errorClassName="rw-label rw-label-error"
-                    >
-                      Nombre Usuario
-                    </Label>
-                    <TextField
-                      name="nombreUsuario"
-                      className="rw-input"
-                      errorClassName="rw-input rw-input-error"
-                      ref={nombreUsuarioRef}
-                      validation={{
-                        required: {
-                          value: true,
-                          message: 'Nombre Usuario is required',
-                        },
-                      }}
-                    />
+              <div className="rw-segment-main">
+                <div className="rw-form-wrapper">
+                  <Form onSubmit={onSubmit} className="rw-form-wrapper">
+                    <div className="text-left">
+                      <Label
+                        name="nombreUsuario"
+                        className="rw-label"
+                        errorClassName="rw-label rw-label-error"
+                      >
+                        Nombre Usuario
+                      </Label>
+                      <TextField
+                        name="nombreUsuario"
+                        className="rw-input"
+                        errorClassName="rw-input rw-input-error"
+                        ref={nombreUsuarioRef}
+                        validation={{
+                          required: {
+                            value: true,
+                            message: 'Nombre Usuario is required',
+                          },
+                        }}
+                      />
 
-                    <FieldError
-                      name="nombreUsuario"
-                      className="rw-field-error"
-                    />
-                  </div>
+                      <FieldError
+                        name="nombreUsuario"
+                        className="rw-field-error"
+                      />
+                    </div>
 
-                  <div className="rw-button-group">
-                    <Submit className="rw-button rw-button-blue">Submit</Submit>
-                  </div>
-                </Form>
+                    <div className="rw-button-group">
+                      <Submit className="rw-button rw-button-blue">
+                        Submit
+                      </Submit>
+                    </div>
+                  </Form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </>
   )
 }
