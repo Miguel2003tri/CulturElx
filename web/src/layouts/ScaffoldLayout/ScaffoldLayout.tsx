@@ -23,7 +23,17 @@ const ScaffoldLayout = ({
   const { logOut, isAuthenticated } = useAuth()
   const location = useLocation()
   const isEventosPage = location.pathname.startsWith(routes.eventos())
-
+  const isEspaciosPage = location.pathname === routes.eventos()
+  // COSAS PARA PODER PONER EL SERCH EN EL HEADER
+  // const [searchQuery, setSearchQuery] = useState('');
+  // const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setSearchQuery(e.target.value);
+  // }
+  // const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   // Do something with the searchQuery, like redirect to a search page
+  //   console.log(searchQuery);
+  // }
   return (
     <div className="rw-scaffold">
       <div className="h-28 bg-amber-500">
@@ -77,7 +87,7 @@ const ScaffoldLayout = ({
 
         <Link to={routes.espacios()}>
           <div
-            className={`mr-40 flex flex-row items-center justify-center rounded-lg pr-2 font-medium ${
+            className={` flex flex-row items-center justify-center rounded-lg pr-2 font-medium ${
               !isEventosPage ? 'bg-amber-200' : ''
             }`}
           >
@@ -87,7 +97,7 @@ const ScaffoldLayout = ({
         </Link>
       </div>
 
-      {isEspaciosPage ? (
+      {!isEspaciosPage ? (
         <p className="mb-6 flex flex-col items-center justify-center font-medium text-yellow-800">
           Explora los espacios culturales de Elche
         </p>
