@@ -1,5 +1,7 @@
 import { Link, routes, useLocation } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
+// IMPORTACION PARA PODER USAR EL FORMULARIO
+// import { useState } from 'react'
 
 import { useAuth } from 'src/auth'
 
@@ -20,8 +22,7 @@ const ScaffoldLayout = ({
 }: LayoutProps) => {
   const { logOut, isAuthenticated } = useAuth()
   const location = useLocation()
-  const isEventosPage = location.pathname === routes.eventos()
-  const isEspaciosPage = location.pathname === routes.espacios()
+  const isEventosPage = location.pathname.startsWith(routes.eventos())
 
   return (
     <div className="rw-scaffold">
@@ -36,6 +37,16 @@ const ScaffoldLayout = ({
           alt=""
           className="absolute top-7 right-20 max-w-xs"
         ></img>
+        {/* FORMULARIO IMPUT  */}
+        {/* <form onSubmit={handleSearchSubmit}>
+          <input
+            type="text"
+            placeholder="Search..."
+            className="absolute top-7 right-40 max-w-xs rounded-md border-gray-300 px-2 py-1"
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+        </form> */}
         {isAuthenticated ? (
           <button className="absolute top-10 right-40" onClick={logOut}>
             {' '}
@@ -66,8 +77,8 @@ const ScaffoldLayout = ({
 
         <Link to={routes.espacios()}>
           <div
-            className={`flex flex-row items-center justify-center rounded-lg pr-2 font-medium ${
-              isEspaciosPage ? 'bg-amber-200' : ''
+            className={`mr-40 flex flex-row items-center justify-center rounded-lg pr-2 font-medium ${
+              !isEventosPage ? 'bg-amber-200' : ''
             }`}
           >
             <img src="/imgs/edificio.png" alt=""></img>

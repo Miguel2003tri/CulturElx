@@ -46,9 +46,12 @@ const LoginPage = () => {
 
   return (
     <>
+      <div className='h-screen bg-amber-500'>
+
+
       <MetaTags title="Login" />
 
-      <main className="rw-main">
+      <main className="rw-main flex text-center justify-center ">
         <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
         <div className="rw-scaffold rw-login-container">
           <div className="rw-segment">
@@ -127,6 +130,7 @@ const LoginPage = () => {
           </div>
         </div>
       </main>
+      </div>
     </>
   )
 }
