@@ -4,6 +4,7 @@ import { toast } from '@redwoodjs/web/toast'
 
 import {} from 'src/lib/formatters'
 
+// eslint-disable-next-line import/order
 import type {
   DeleteEventoMutationVariables,
   FindEventoById,
@@ -123,16 +124,16 @@ const Evento = ({ evento }: Props) => {
           </tbody>
         </table>
       </div>
-      <nav className="flex p-9 justify-center space-x-4">
+      <nav className="flex justify-center space-x-4 p-9">
         <Link
           to={routes.editEvento({ id: evento.id })}
-          className="rounded bg-yellow-500 px-4 py-2 text-white hover:bg-yellow-600 "
+          className="rounded bg-yellow-500 px-4 py-2 text-white hover:bg-yellow-600"
         >
           Editar
         </Link>
         <button
           type="button"
-          className="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600 "
+          className="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
           onClick={() => onDeleteClick(evento.id)}
         >
           Eliminar

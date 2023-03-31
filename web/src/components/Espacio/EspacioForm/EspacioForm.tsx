@@ -40,13 +40,6 @@ const EspacioForm = (props: EspacioFormProps) => {
         ></CustomTextField>
 
         <CustomNumberField
-          numero={props.espacio?.tipo_eventoId}
-          nombre={'tipo_eventoId'}
-          label={'Tipo evento id'}
-          isrequired={true}
-        ></CustomNumberField>
-
-        <CustomNumberField
           numero={props.espacio?.lat}
           nombre={'lat'}
           label={'Lat'}

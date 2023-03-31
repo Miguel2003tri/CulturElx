@@ -59,7 +59,6 @@ const EspaciosList = ({ espacios }: FindEspacios) => {
             <tr key={espacio.id}>
               <td>{truncate(espacio.id)}</td>
               <td>{truncate(espacio.nombre)}</td>
-              <td>{truncate(espacio.tipo_eventoId)}</td>
               <td>{truncate(espacio.lat)}</td>
               <td>{truncate(espacio.lng)}</td>
               <td>{truncate(espacio.ubicacion)}</td>

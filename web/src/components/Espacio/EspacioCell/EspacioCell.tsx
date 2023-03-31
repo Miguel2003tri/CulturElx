@@ -1,8 +1,9 @@
-import { Evento } from '@prisma/client'
 import type { FindEspacioById } from 'types/graphql'
 
 import { Link, routes } from '@redwoodjs/router'
-import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
+import { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
+
+import Espacio from '../Espacio/Espacio'
 
 export const QUERY = gql`
   query FindEspacioById($id: Int!) {
@@ -30,6 +31,14 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({ espacio }: CellSuccessProps<FindEspacioById>) => {
   return (
     <>
+      <Espacio
+        espacio={{
+          __typename: 'Espacio',
+          id: espacio.id,
+          nombre: '',
+          Eventos: [],
+        }}
+      ></Espacio>
       <div className="flex w-full items-center justify-center">
         <p className="pb-10 text-7xl text-black">{espacio.nombre}</p>
       </div>
@@ -53,4 +62,3 @@ export const Success = ({ espacio }: CellSuccessProps<FindEspacioById>) => {
     </>
   )
 }
-//  <p>{JSON.stringify(espacio)}</p>

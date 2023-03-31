@@ -12,7 +12,6 @@ export const QUERY = gql`
     espacio: espacio(id: $id) {
       id
       nombre
-      tipo_eventoId
       lat
       lng
       ubicacion
@@ -25,7 +24,6 @@ const UPDATE_ESPACIO_MUTATION = gql`
     updateEspacio(id: $id, input: $input) {
       id
       nombre
-      tipo_eventoId
       lat
       lng
       ubicacion
@@ -64,9 +62,7 @@ export const Success = ({ espacio }: CellSuccessProps<EditEspacioById>) => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">
-          Edit Espacio {espacio?.id}
-        </h2>
+        <h2 className="rw-heading rw-heading-secondary"> </h2>
       </header>
       <div className="rw-segment-main">
         <EspacioForm

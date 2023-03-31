@@ -23,7 +23,7 @@ model Espacio {
   nombre    String
   lat       Decimal
   lng       Decimal
-  ubicacion String   @unique
+  ubicacion String
   Eventos   Evento[]
   img       String?  @default("null")
 }

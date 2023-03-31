@@ -43,9 +43,6 @@ export const deleteEspacio: MutationResolvers['deleteEspacio'] = ({ id }) => {
 }
 
 export const Espacio: EspacioRelationResolvers = {
-  tipoDeEvento: (_obj, { root }) => {
-    return db.espacio.findUnique({ where: { id: root?.id } }).tipoDeEvento()
-  },
   Eventos: (_obj, { root }) => {
     return db.espacio.findUnique({ where: { id: root?.id } }).Eventos()
   },
