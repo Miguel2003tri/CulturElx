@@ -58,20 +58,30 @@ const ScaffoldLayout = ({
           />
         </form> */}
         {isAuthenticated ? (
-          <Link to={routes.home()} className="absolute top-10 right-40" onClick={logOut}>
+          <Link
+            to={routes.home()}
+            className="absolute top-10 right-40"
+            onClick={logOut}
+          >
             {' '}
             Log out
           </Link>
         ) : (
-          <Link to={routes.login()} className="absolute top-10 right-40">
+          <Link to={routes.login()}
+          className="absolute top-10 right-40">
+             {' '}
             Login
           </Link>
         )}
       </div>
       <br />
-      <Link to={routes.espacios()} className="absolute right-56 top-10">
-        Inicio
-      </Link>
+      {isAuthenticated ? (
+        <Link to={routes.espacios()} className="absolute right-56 top-10">
+          Inicio
+        </Link>
+      ) : (
+        <p></p>
+      )}
 
       <div className="mb-8 flex flex-row items-center justify-center font-medium">
         <NavLink
