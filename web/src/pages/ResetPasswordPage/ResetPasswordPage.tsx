@@ -62,7 +62,7 @@ const ResetPasswordPage = ({ resetToken }: { resetToken: string }) => {
       <div className="h-screen bg-amber-500">
         <MetaTags title="Reset Contraseña" />
 
-        <main className="rw-main flex text-center justify-center ">
+        <main className="flex justify-center text-center">
           <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
           <div className="rw-scaffold rw-login-container">
             <div className="rw-segment">
