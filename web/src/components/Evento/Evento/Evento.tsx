@@ -40,90 +40,102 @@ const Evento = ({ evento }: Props) => {
 
   return (
     <>
-      <div className="rw-segment">
-        <header className="rw-segment-header">
-          <h2 className="rw-heading rw-heading-secondary">
-            Evento {evento.id} Detail
+      <div className="overflow-hidden rounded-lg bg-white shadow-md">
+        <header className="border-b border-gray-200 bg-gray-100 px-4 py-2">
+          <h2 className="text-lg font-bold text-gray-800">
+            Evento {evento.nombre} Detalles
           </h2>
         </header>
-        <table className="rw-table">
-          <tbody>
-            <tr>
-              <th>Id</th>
-              <td>{evento.id}</td>
+        <table className="w-full">
+          <tbody className="divide-y divide-gray-200 bg-gray-50">
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">Id</th>
+              <td className="px-4 py-2">{evento.id}</td>
             </tr>
-            <tr>
-              <th>Nombre</th>
-              <td>{evento.nombre}</td>
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">Nombre</th>
+              <td className="px-4 py-2">{evento.nombre}</td>
             </tr>
-            <tr>
-              <th>Horarios</th>
-              <td>{evento.horarios}</td>
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">
+                Horarios
+              </th>
+              <td className="px-4 py-2">{evento.horarios}</td>
             </tr>
-            <tr>
-              <th>Tipo evento id</th>
-              <td>{evento.tipo_eventoId}</td>
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">
+                Tipo evento id
+              </th>
+              <td className="px-4 py-2">{evento.tipo_eventoId}</td>
             </tr>
-            <tr>
-              <th>Fecha</th>
-              <td>{evento.fecha}</td>
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">Fecha</th>
+              <td className="px-4 py-2">{evento.fecha}</td>
             </tr>
-            <tr>
-              <th>Pases</th>
-              <td>{evento.pases}</td>
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">Pases</th>
+              <td className="px-4 py-2">{evento.pases}</td>
             </tr>
-            <tr>
-              <th>Sala</th>
-              <td>{evento.sala}</td>
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">Sala</th>
+              <td className="px-4 py-2">{evento.sala}</td>
             </tr>
-            <tr>
-              <th>Duracion</th>
-              <td>{evento.duracion}</td>
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">
+                Duracion
+              </th>
+              <td className="px-4 py-2">{evento.duracion}</td>
             </tr>
-            <tr>
-              <th>Ubicacion id</th>
-              <td>{evento.ubicacionId}</td>
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">
+                Ubicacion id
+              </th>
+              <td className="px-4 py-2">{evento.ubicacionId}</td>
             </tr>
-            <tr>
-              <th>Director</th>
-              <td>{evento.director}</td>
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">
+                Director
+              </th>
+              <td className="px-4 py-2">{evento.director}</td>
             </tr>
-            <tr>
-              <th>Sinopsis</th>
-              <td>{evento.sinopsis}</td>
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">
+                Sinopsis
+              </th>
+              <td className="px-4 py-2">{evento.sinopsis}</td>
             </tr>
-            <tr>
-              <th>Trailer</th>
-              <td>{evento.trailer}</td>
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">Trailer</th>
+              <td className="px-4 py-2">{evento.trailer}</td>
             </tr>
-            <tr>
-              <th>Reparto</th>
-              <td>{evento.reparto}</td>
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">Reparto</th>
+              <td className="px-4 py-2">{evento.reparto}</td>
             </tr>
-            <tr>
-              <th>Precio</th>
-              <td>{evento.precio}</td>
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">Precio</th>
+              <td className="px-4 py-2">{evento.precio}</td>
             </tr>
-            <tr>
-              <th>Img</th>
-              <td>{evento.img}</td>
+            <tr className="py-2">
+              <th className="px-4 py-2 font-semibold text-gray-800">Img</th>
+              <td className="px-4 py-2">{evento.img}</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <nav className="rw-button-group">
+      <nav className="flex p-9 justify-center space-x-4">
         <Link
           to={routes.editEvento({ id: evento.id })}
-          className="rw-button rw-button-blue"
+          className="rounded bg-yellow-500 px-4 py-2 text-white hover:bg-yellow-600 "
         >
-          Edit
+          Editar
         </Link>
         <button
           type="button"
-          className="rw-button rw-button-red"
+          className="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600 "
           onClick={() => onDeleteClick(evento.id)}
         >
-          Delete
+          Eliminar
         </button>
       </nav>
     </>

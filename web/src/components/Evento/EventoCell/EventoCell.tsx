@@ -35,8 +35,7 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({ evento }: CellSuccessProps<FindEventoById>) => {
+  console.log('holi')
 
-return <Evento evento={evento} />
-
+  return <Evento evento={evento} />
 }
-
