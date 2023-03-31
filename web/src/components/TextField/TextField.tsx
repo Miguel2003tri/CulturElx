@@ -1,4 +1,4 @@
-import { FieldError, Label, NumberField, TextField } from '@redwoodjs/forms'
+import { FieldError, NumberField, TextField } from '@redwoodjs/forms'
 
 interface CustomTextFieldProps {
   nombre: string
@@ -15,28 +15,17 @@ const CustomTextField: React.FC<CustomTextFieldProps> = ({
 }) => {
   return (
     <>
-      <Label
-        name={nombre}
-        className="rw-label text-red-500"
-        errorClassName="rw-label rw-label-error"
-      >
+      <label className="mb-2 block font-bold text-gray-700" htmlFor={nombre}>
         {label}
-      </Label>
+      </label>
       <TextField
         name={nombre}
         defaultValue={valorDefecto}
-        className="rw-input"
-        errorClassName="rw-input rw-input-error"
+        className="focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+        errorClassName="shadow appearance-none border rounded w-full py-2 px-3 text-red-600 leading-tight focus:outline-none focus:shadow-outline"
         validation={{ required: isrequired }}
       />
-      {/* <NumberField
-        name={nombre}
-        defaultValue={valorDefecto}
-        className="rw-input"
-        errorClassName="rw-input rw-input-error"
-        validation={{ required: isrequired }}
-      /> */}
-      <FieldError name={nombre} className="rw-field-error" />
+      <FieldError name={nombre} className="mt-1 text-sm text-red-600" />
     </>
   )
 }
@@ -56,27 +45,18 @@ const CustomNumberField: React.FC<CustomNumberFieldProps> = ({
 }) => {
   return (
     <>
-      <Label
-        name={nombre}
-        className="rw-label"
-        errorClassName="rw-label rw-label-error"
-      >
+      <label htmlFor={nombre} className="mb-2 block font-bold text-gray-700">
         {label}
-      </Label>
-      <TextField
-        name={nombre}
-        defaultValue={numero}
-        className="rw-input"
-        errorClassName="rw-input rw-input-error"
-        validation={{ required: isrequired }}
-      />
+      </label>
+
       <NumberField
         name={nombre}
         defaultValue={numero}
-        className="rw-input"
-        errorClassName="rw-input rw-input-error"
+        className="focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight text-gray-700 shadow focus:outline-none"
+        errorClassName="shadow appearance-none border rounded w-full py-2 px-3 text-red-600 leading-tight focus:outline-none focus:shadow-outline"
         validation={{ required: isrequired }}
       />
+
       <FieldError name={nombre} className="rw-field-error" />
     </>
   )

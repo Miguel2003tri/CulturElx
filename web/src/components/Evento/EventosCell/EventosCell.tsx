@@ -3,8 +3,6 @@ import type { FindEventos } from 'types/graphql'
 import { Link, routes } from '@redwoodjs/router'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
-import Eventos from 'src/components/Evento/Eventos'
-
 export const QUERY = gql`
   query FindEventos {
     eventos {
@@ -50,6 +48,15 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({ eventos }: CellSuccessProps<FindEventos>) => {
   return (
     <>
+      <div className="mb-5 flex items-center justify-center">
+        <Link
+          to={routes.newEvento()}
+          className="focus:shadow-outline flex flex-wrap items-center justify-center rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700 focus:outline-none"
+        >
+          Crear Evento
+        </Link>
+      </div>
+
       <div className="flex flex-wrap items-center justify-center pl-44">
         {eventos.map((evento) => (
           <Link to={routes.evento({ id: evento.id })} key={evento.id}>

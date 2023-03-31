@@ -1,16 +1,15 @@
+import type { CreateEventoInput, NewEventoData } from 'types/graphql'
+
 import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import EventoForm from 'src/components/Evento/EventoForm'
 
-import type { CreateEventoInput, NewEventoData } from 'types/graphql'
-
-interface NewEventoProps{
-  espacios:NewEventoData["espacios"]
-  tipoEventos:NewEventoData["tipoEventos"]
+interface NewEventoProps {
+  espacios: NewEventoData['espacios']
+  tipoEventos: NewEventoData['tipoEventos']
 }
-
 
 const CREATE_EVENTO_MUTATION = gql`
   mutation CreateEventoMutation($input: CreateEventoInput!) {
@@ -41,7 +40,7 @@ const NewEvento: React.FC<NewEventoProps> = ({ espacios, tipoEventos }) => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">New Evento</h2>
+        <h2 className="rw-heading rw-heading-secondary"> </h2>
       </header>
       <div className="rw-segment-main">
         <EventoForm

@@ -1,13 +1,6 @@
 import type { EditEspacioById, UpdateEspacioInput } from 'types/graphql'
 
-import {
-  Form,
-  FormError,
-  FieldError,
-  Label,
-  TextField,
-  Submit,
-} from '@redwoodjs/forms'
+import { Form, FormError, Submit } from '@redwoodjs/forms'
 import type { RWGqlError } from '@redwoodjs/forms'
 
 import {
@@ -30,7 +23,7 @@ const EspacioForm = (props: EspacioFormProps) => {
   }
 
   return (
-    <div className="rw-form-wrapper">
+    <div className="rw-form-wrapper ml-5 mr-5">
       <Form<FormEspacio> onSubmit={onSubmit} error={props.error}>
         <FormError
           error={props.error}
@@ -53,48 +46,12 @@ const EspacioForm = (props: EspacioFormProps) => {
           isrequired={true}
         ></CustomNumberField>
 
-        <Label
-          name="lat"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Lat
-        </Label>
-
-        <TextField
-          name="lat"
-          defaultValue={props.espacio?.lat}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ valueAsNumber: true, required: true }}
-        />
-
-        <FieldError name="lat" className="rw-field-error" />
-
         <CustomNumberField
           numero={props.espacio?.lat}
           nombre={'lat'}
           label={'Lat'}
           isrequired={true}
         ></CustomNumberField>
-
-        <Label
-          name="lng"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Lng
-        </Label>
-
-        <TextField
-          name="lng"
-          defaultValue={props.espacio?.lng}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ valueAsNumber: true, required: true }}
-        />
-
-        <FieldError name="lng" className="rw-field-error" />
 
         <CustomNumberField
           numero={props.espacio?.lng}
@@ -118,7 +75,10 @@ const EspacioForm = (props: EspacioFormProps) => {
         ></CustomTextField>
 
         <div className="rw-button-group">
-          <Submit disabled={props.loading} className="rw-button rw-button-blue">
+          <Submit
+            disabled={props.loading}
+            className="mt-8 mb-8 rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600"
+          >
             Save
           </Submit>
         </div>

@@ -1,10 +1,10 @@
+import type { CreateEspacioInput } from 'types/graphql'
+
 import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import EspacioForm from 'src/components/Espacio/EspacioForm'
-
-import type { CreateEspacioInput } from 'types/graphql'
 
 const CREATE_ESPACIO_MUTATION = gql`
   mutation CreateEspacioMutation($input: CreateEspacioInput!) {
@@ -35,7 +35,7 @@ const NewEspacio = () => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">New Espacio</h2>
+        <h2 className="rw-heading rw-heading-secondary"> </h2>
       </header>
       <div className="rw-segment-main">
         <EspacioForm onSave={onSave} loading={loading} error={error} />

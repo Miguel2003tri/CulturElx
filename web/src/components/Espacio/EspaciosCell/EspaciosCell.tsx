@@ -38,6 +38,14 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({ espacios }: CellSuccessProps<FindEspacios>) => {
   return (
     <>
+      <div className="mb-5 flex items-center justify-center">
+        <Link
+          to={routes.newEspacio()}
+          className="focus:shadow-outline flex flex-wrap items-center justify-center rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700 focus:outline-none"
+        >
+          Crear Espacio
+        </Link>
+      </div>
       <p className="mb-6 flex flex-col items-center justify-center font-medium text-yellow-800">
         Explora los espacios culturales de Elche
       </p>
