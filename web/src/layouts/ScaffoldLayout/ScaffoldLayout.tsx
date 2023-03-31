@@ -58,10 +58,10 @@ const ScaffoldLayout = ({
           />
         </form> */}
         {isAuthenticated ? (
-          <button className="absolute top-10 right-40" onClick={logOut}>
+          <Link to={routes.home()} className="absolute top-10 right-40" onClick={logOut}>
             {' '}
             Log out
-          </button>
+          </Link>
         ) : (
           <Link to={routes.login()} className="absolute top-10 right-40">
             Login

@@ -39,33 +39,33 @@ const ForgotPasswordPage = () => {
 
   return (
     <>
-      <div className="h-screen bg-amber-500">
+      <div className="flex h-screen items-center justify-center bg-amber-500">
         <MetaTags title="Forgot Contraseña" />
 
-        <main className="rw-main flex text-center justify-center">
+        <main className="rw-main">
           <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
           <div className="rw-scaffold rw-login-container">
-            <div className="rw-segment">
-              <header className="rw-segment-header">
-                <h2 className="rw-heading rw-heading-secondary">
+            <div className="rw-segment rounded-xl bg-white shadow-xl">
+              <header className="rw-segment-header border-b-2 p-4">
+                <h2 className="rw-heading rw-heading-secondary text-center text-lg font-bold text-gray-800">
                   Forgot Contraseña
                 </h2>
               </header>
 
-              <div className="rw-segment-main">
+              <div className="rw-segment-main p-4">
                 <div className="rw-form-wrapper">
                   <Form onSubmit={onSubmit} className="rw-form-wrapper">
-                    <div className="text-left">
+                  <div className="mb-4">
                       <Label
                         name="nombreUsuario"
-                        className="rw-label"
+                        className="rw-label mb-2 block text-lg font-bold"
                         errorClassName="rw-label rw-label-error"
                       >
                         Nombre Usuario
                       </Label>
                       <TextField
                         name="nombreUsuario"
-                        className="rw-input"
+                        className="rw-input w-full rounded-md border-2 border-gray-300 px-4 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600"
                         errorClassName="rw-input rw-input-error"
                         ref={nombreUsuarioRef}
                         validation={{
@@ -78,12 +78,12 @@ const ForgotPasswordPage = () => {
 
                       <FieldError
                         name="nombreUsuario"
-                        className="rw-field-error"
+                        className="rw-field-error mt-1 text-red-500"
                       />
                     </div>
 
-                    <div className="rw-button-group">
-                      <Submit className="rw-button rw-button-blue">
+                    <div className="rw-button-group flex justify-center">
+                      <Submit className="rw-button focus:shadow-outline-blue rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50">
                         Submit
                       </Submit>
                     </div>

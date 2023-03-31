@@ -248,7 +248,7 @@ const EventoForm = (props: EventoFormProps) => {
         <div className="rw-button-group">
           <Submit
             disabled={props.loading}
-            className="mt-8 mb-8 rounded bg-yellow-500 px-4 py-2 text-white hover:bg-yellow-600"
+            className="mt-8 mb-8 rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600"
           >
             Save
           </Submit>
