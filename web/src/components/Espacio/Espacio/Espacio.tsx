@@ -4,6 +4,7 @@ import { toast } from '@redwoodjs/web/toast'
 
 import {} from 'src/lib/formatters'
 
+// eslint-disable-next-line import/order
 import type {
   DeleteEspacioMutationVariables,
   FindEspacioById,
@@ -40,60 +41,21 @@ const Espacio = ({ espacio }: Props) => {
 
   return (
     <>
-      <div className="rw-segment">
-        <header className="rw-segment-header">
-          <h2 className="rw-heading rw-heading-secondary">
-            Espacio {espacio.id} Detail
-          </h2>
-        </header>
-        <table className="rw-table">
-          <tbody>
-            <tr>
-              <th>Id</th>
-              <td>{espacio.id}</td>
-            </tr>
-            <tr>
-              <th>Nombre</th>
-              <td>{espacio.nombre}</td>
-            </tr>
-            <tr>
-              <th>Tipo evento id</th>
-              <td>{espacio.tipo_eventoId}</td>
-            </tr>
-            <tr>
-              <th>Lat</th>
-              <td>{espacio.lat}</td>
-            </tr>
-            <tr>
-              <th>Lng</th>
-              <td>{espacio.lng}</td>
-            </tr>
-            <tr>
-              <th>Ubicacion</th>
-              <td>{espacio.ubicacion}</td>
-            </tr>
-            <tr>
-              <th>Imagen</th>
-              <td>{espacio.img}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <nav className="rw-button-group">
+      <div className="mb-5 flex flex-row items-center justify-center">
         <Link
           to={routes.editEspacio({ id: espacio.id })}
-          className="rw-button rw-button-blue"
+          className="rounded bg-yellow-500 px-4 py-2 text-white hover:bg-yellow-600"
         >
           Edit
         </Link>
         <button
           type="button"
-          className="rw-button rw-button-red"
+          className="ml-10 rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
           onClick={() => onDeleteClick(espacio.id)}
         >
           Delete
         </button>
-      </nav>
+      </div>
     </>
   )
 }

@@ -39,8 +39,11 @@ const EspacioForm = (props: EspacioFormProps) => {
           isrequired={true}
         ></CustomTextField>
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 29a335fb251665a9734457b6fe90393ed2594701
         <CustomNumberField
           numero={props.espacio?.lat}
           nombre={'lat'}
