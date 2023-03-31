@@ -88,15 +88,15 @@ const EventoForm = (props: EventoFormProps) => {
           defaultValue={props.evento?.tipo_eventoId}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true , valueAsNumber:true }}
-
+          validation={{ required: true, valueAsNumber: true }}
         >
-          {props.tipoEventos.map(tipo=>
-            {
-              return(
-                <option key={tipo.id} value={tipo.id} >{tipo.nombre}  </option>
-              )
-            })}
+          {props.tipoEventos.map((tipo) => {
+            return (
+              <option key={tipo.id} value={tipo.id}>
+                {tipo.nombre}{' '}
+              </option>
+            )
+          })}
         </SelectField>
 
         <FieldError name="tipo_eventoId" className="rw-field-error" />
@@ -186,14 +186,15 @@ const EventoForm = (props: EventoFormProps) => {
           defaultValue={props.evento?.espacioId}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true, valueAsNumber:true}}
-          >
-          {props.espacios.map(espacio=>
-            {
-              return(
-                <option key={espacio.id} value={espacio.id} >{espacio.nombre}  </option>
-              )
-            })}
+          validation={{ required: true, valueAsNumber: true }}
+        >
+          {props.espacios.map((espacio) => {
+            return (
+              <option key={espacio.id} value={espacio.id}>
+                {espacio.nombre}{' '}
+              </option>
+            )
+          })}
         </SelectField>
 
         <FieldError name="espacioId" className="rw-field-error" />

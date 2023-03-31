@@ -13,22 +13,19 @@ generator client {
 // TODO: Please remove the following example:
 
 model TipoEvento {
-  id       Int       @id @default(autoincrement())
-  nombre   String
-  Espacios Espacio[]
-  Eventos  Evento[]
+  id      Int      @id @default(autoincrement())
+  nombre  String
+  Eventos Evento[]
 }
 
 model Espacio {
-  id            Int        @id @default(autoincrement())
-  nombre        String
-  tipoDeEvento  TipoEvento @relation(fields: [tipo_eventoId], references: [id], onDelete: Cascade)
-  tipo_eventoId Int
-  lat           Decimal
-  lng           Decimal
-  ubicacion     String     @unique
-  Eventos       Evento[]
-  img           String?    @default("null")
+  id        Int      @id @default(autoincrement())
+  nombre    String
+  lat       Decimal
+  lng       Decimal
+  ubicacion String   @unique
+  Eventos   Evento[]
+  img       String?  @default("null")
 }
 
 model Evento {
