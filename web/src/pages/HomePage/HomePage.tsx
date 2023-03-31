@@ -23,9 +23,13 @@ const HomePage = () => {
             Login
           </Link>
         )}
-        <Link to={routes.espacios()} className="absolute right-40 top-10">
+          {isAuthenticated ? (
+        <Link to={routes.espacios()} className="absolute right-56 top-10">
           Inicio
         </Link>
+      ) : (
+        <p></p>
+      )}
         <img src="/imgs/logo-vertical.png" alt="" className="max-w-min" />
         <p className="absolute bottom-0 mb-10">
           App desarrollada por Dalii
