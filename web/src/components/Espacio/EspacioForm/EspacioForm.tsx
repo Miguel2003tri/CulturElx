@@ -11,8 +11,8 @@ import {
 import type { RWGqlError } from '@redwoodjs/forms'
 
 import {
-  CustomTextField,
   CustomNumberField,
+  CustomTextField,
 } from 'src/components/TextField/TextField'
 
 type FormEspacio = NonNullable<EditEspacioById['espacio']>
@@ -46,12 +46,12 @@ const EspacioForm = (props: EspacioFormProps) => {
           isrequired={true}
         ></CustomTextField>
 
-        {/* <CustomNumberField
+        <CustomNumberField
           numero={props.espacio?.tipo_eventoId}
           nombre={'tipo_eventoId'}
           label={'Tipo evento id'}
           isrequired={true}
-        ></CustomNumberField> */}
+        ></CustomNumberField>
 
         <Label
           name="lat"
@@ -71,12 +71,12 @@ const EspacioForm = (props: EspacioFormProps) => {
 
         <FieldError name="lat" className="rw-field-error" />
 
-        {/* <CustomNumberField
+        <CustomNumberField
+          numero={props.espacio?.lat}
           nombre={'lat'}
-          valorDefecto={props.espacio?.lat}
           label={'Lat'}
           isrequired={true}
-        ></CustomNumberField> */}
+        ></CustomNumberField>
 
         <Label
           name="lng"
@@ -96,12 +96,12 @@ const EspacioForm = (props: EspacioFormProps) => {
 
         <FieldError name="lng" className="rw-field-error" />
 
-        {/* <CustomTextField
+        <CustomNumberField
+          numero={props.espacio?.lng}
           nombre={'lng'}
-          valorDefecto={props.espacio?.lng}
           label={'Lng'}
           isrequired={true}
-        ></CustomTextField> */}
+        ></CustomNumberField>
 
         <CustomTextField
           nombre={'ubicacion'}

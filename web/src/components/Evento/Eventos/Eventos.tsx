@@ -1,11 +1,11 @@
+import type { DeleteEventoMutationVariables, FindEventos } from 'types/graphql'
+
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { QUERY } from 'src/components/Evento/EventosCell'
 import { truncate } from 'src/lib/formatters'
-
-import type { DeleteEventoMutationVariables, FindEventos } from 'types/graphql'
 
 const DELETE_EVENTO_MUTATION = gql`
   mutation DeleteEventoMutation($id: Int!) {
@@ -73,10 +73,20 @@ const EventosList = ({ eventos }: FindEventos) => {
               <td>{truncate(evento.Espacio.nombre)}</td>
               <td>{truncate(evento.director)}</td>
               <td>{truncate(evento.sinopsis)}</td>
-              <td><a target={'_blank'} rel="noopener noreferrer" href={evento.trailer}>Trailer</a></td>
+              <td>
+                <a
+                  target={'_blank'}
+                  rel="noopener noreferrer"
+                  href={evento.trailer}
+                >
+                  Trailer
+                </a>
+              </td>
               <td>{truncate(evento.reparto)}</td>
               <td>{truncate(evento.precio)}</td>
-              <td><img src={evento.img} className="h-12 w-12"></img></td>
+              <td>
+                <img src={evento.img} className="h-12 w-12"></img>
+              </td>
               <td>
                 <nav className="rw-table-actions">
                   <Link
@@ -88,7 +98,7 @@ const EventosList = ({ eventos }: FindEventos) => {
                   </Link>
                   <Link
                     to={routes.editEvento({ id: evento.id })}
-                    title={'Edit evento ' + evento.id}
+                    title={''}
                     className="rw-button rw-button-small rw-button-blue"
                   >
                     Edit

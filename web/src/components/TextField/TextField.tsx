@@ -17,7 +17,7 @@ const CustomTextField: React.FC<CustomTextFieldProps> = ({
     <>
       <Label
         name={nombre}
-        className="rw-label"
+        className="rw-label text-red-500"
         errorClassName="rw-label rw-label-error"
       >
         {label}
@@ -29,13 +29,13 @@ const CustomTextField: React.FC<CustomTextFieldProps> = ({
         errorClassName="rw-input rw-input-error"
         validation={{ required: isrequired }}
       />
-      <NumberField
+      {/* <NumberField
         name={nombre}
         defaultValue={valorDefecto}
         className="rw-input"
         errorClassName="rw-input rw-input-error"
         validation={{ required: isrequired }}
-      />
+      /> */}
       <FieldError name={nombre} className="rw-field-error" />
     </>
   )
