@@ -10,7 +10,6 @@ export const QUERY = gql`
     espacios {
       id
       nombre
-      tipo_eventoId
       lat
       lng
       ubicacion
