@@ -2,8 +2,6 @@ export const schema = gql`
   type Espacio {
     id: Int!
     nombre: String!
-    tipoDeEvento: TipoEvento!
-    tipo_eventoId: Int!
     lat: Float!
     lng: Float!
     ubicacion: String!
@@ -18,7 +16,6 @@ export const schema = gql`
 
   input CreateEspacioInput {
     nombre: String!
-    tipo_eventoId: Int!
     lat: Float!
     lng: Float!
     ubicacion: String!
@@ -27,7 +24,6 @@ export const schema = gql`
 
   input UpdateEspacioInput {
     nombre: String
-    tipo_eventoId: Int
     lat: Float
     lng: Float
     ubicacion: String

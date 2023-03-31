@@ -12,7 +12,6 @@ export const QUERY = gql`
     espacio: espacio(id: $id) {
       id
       nombre
-      tipo_eventoId
       lat
       lng
       ubicacion
@@ -25,7 +24,6 @@ const UPDATE_ESPACIO_MUTATION = gql`
     updateEspacio(id: $id, input: $input) {
       id
       nombre
-      tipo_eventoId
       lat
       lng
       ubicacion

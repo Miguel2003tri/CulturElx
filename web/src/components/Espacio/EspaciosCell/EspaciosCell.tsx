@@ -70,6 +70,7 @@ export const Success = ({ espacios }: CellSuccessProps<FindEspacios>) => {
               <p className="text-gray-500">{espacio.ubicacion}</p>
             </div>
           </Link>
+
         </article>
       ))}
     </>

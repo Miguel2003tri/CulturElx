@@ -42,6 +42,7 @@ export const Empty = () => {
 }
 
 export const Failure = ({ error }: CellFailureProps) => (
+
   <div className="rw-cell-error">{error?.message}</div>
 )
 
@@ -70,10 +71,13 @@ export const Success = ({ eventos }: CellSuccessProps<FindEventos>) => {
                 <p>{evento.nombre}</p>
                 <p>Fecha: {evento.fecha}</p>
               </div>
+
             </article>
           </Link>
         ))}
       </div>
+
+
     </>
   )
 }
