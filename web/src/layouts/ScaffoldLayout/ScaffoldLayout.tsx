@@ -34,11 +34,14 @@ const ScaffoldLayout = ({
   return (
     <div className="rw-scaffold">
       <div className="h-28 bg-amber-500">
-        <img
-          src="/imgs/Logo-Horizontal.png"
-          alt=""
-          className="absolute top-9 left-48 max-h-64"
-        ></img>
+        <Link to={routes.espacios()}>
+          <img
+            src="/imgs/Logo-Horizontal.png"
+            alt=""
+            className="absolute top-9 left-48 max-h-64"
+          ></img>
+        </Link>
+
         <img
           src="/imgs/lupa.png"
           alt=""
@@ -66,7 +69,7 @@ const ScaffoldLayout = ({
         )}
       </div>
       <br />
-      <Link to={routes.inicio()} className="absolute right-56 top-10">
+      <Link to={routes.espacios()} className="absolute right-56 top-10">
         Inicio
       </Link>
 
