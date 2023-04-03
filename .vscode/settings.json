@@ -10,6 +10,7 @@
   },
   "conventionalCommits.scopes": [
     "web",
-    "api"
+    "api",
+    "app"
   ]
 }
