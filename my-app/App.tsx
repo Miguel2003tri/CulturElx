@@ -8,6 +8,7 @@ import { Gesture, GestureHandlerRootView } from 'react-native-gesture-handler'
 import { ApiProvider } from './src/api'
 import Constants from 'expo-constants'
 const uri = Constants.manifest.extra.api
+console.log(uri)
 export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>

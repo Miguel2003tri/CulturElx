@@ -1,24 +1,51 @@
-import { View, Text, StyleSheet, Button } from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  FlatList,
+  RefreshControl,
+  Pressable,
+} from 'react-native'
 import { EventosProps } from '../navigation/types'
 import { StatusBar } from 'expo-status-bar'
-import { useEventosQuery } from '../api'
+import { NetworkStatus, useEventosQuery } from '../api'
 
-const Eventos: React.FC<EventosProps> = ({navigation}) => {
-  const {data,loading}=useEventosQuery()
-  if(loading){
-    return(
+const Eventos: React.FC<EventosProps> = ({ navigation }) => {
+  const { data, loading, refetch, networkStatus } = useEventosQuery({
+    notifyOnNetworkStatusChange: true,
+  })
+  if (loading) {
+    return (
       <View style={styles.container}>
-      <Text>Cargando ...</Text>
-    </View>
+        <Text>Cargando ...</Text>
+      </View>
     )
   }
   return (
     <View style={styles.container}>
-      <Text>Tenemos  {data?.eventos?.length} eventos</Text>
-      <Button title='Ir a Evento' onPress={()=>navigation.navigate("Evento",{id:1})}/>
-      <StatusBar style="auto" />
+      <FlatList
+        keyExtractor={(item) => {
+          return item.id.toString()
+        }}
+        refreshControl={
+          <RefreshControl
+            refreshing={networkStatus === NetworkStatus.refetch}
+            onRefresh={refetch}
+          ></RefreshControl>
+        }
+        data={data.eventos}
+        renderItem={({ item }) => {
+          return (
+            <View>
+              <Pressable onPress={()=>{navigation.navigate('Evento',{id:item.id})}}>
+                <Text>{item.nombre}</Text>
+              </Pressable>
+            </View>
+          )
+        }}
+      />
     </View>
-
   )
 }
 const styles = StyleSheet.create({
