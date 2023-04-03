@@ -1,6 +1,8 @@
-import { ApolloProvider } from '@apollo/client'
-import { getClient } from './apollo-client'
 import React from 'react'
+
+import { ApolloProvider } from '@apollo/client'
+
+import { getClient } from './apollo-client'
 
 interface ApiProviderProps {
   children: React.ReactElement
