@@ -1,20 +1,26 @@
-import { NavigationContainer } from '@react-navigation/native'
-import { StatusBar } from 'expo-status-bar'
 import React from 'react'
+
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View } from 'react-native'
-import MyStack from './src/navigation/Root'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { Gesture, GestureHandlerRootView } from 'react-native-gesture-handler'
+
+const Tab = createMaterialTopTabNavigator()
+
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Settings" component={SettingsScreen} />
+    </Tab.Navigator>
+  )
+}
 
 export default function App() {
   return (
-    <GestureHandlerRootView style={{flex:1}}>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <MyStack></MyStack>
-        </NavigationContainer>
-      </SafeAreaProvider>
-    </GestureHandlerRootView>
+    <View style={styles.container}>
+      <Text>Open up App.js to start working on your app! Ivan Cabrera</Text>
+      <StatusBar style="auto" />
+    </View>
   )
 }
 

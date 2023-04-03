@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet } from 'react-native'
-import { HomeProps } from '../navigation/types'
 import { StatusBar } from 'expo-status-bar'
+import { View, Text, StyleSheet } from 'react-native'
+
+import { HomeProps } from '../navigation/types'
 
 const Home: React.FC<HomeProps> = () => {
   return (

@@ -1,11 +1,13 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { RootStackParamList, RootTabsParamList } from './types'
-import Home from '../screens/Home'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
-import Eventos from '../screens/Eventos'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+
 import Espacio from '../screens/Espacio'
-import Evento from '../screens/Evento'
 import Espacios from '../screens/Espacios'
+import Evento from '../screens/Evento'
+import Eventos from '../screens/Eventos'
+import Home from '../screens/Home'
+
+import { RootStackParamList, RootTabsParamList } from './types'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 const Tabs = createMaterialTopTabNavigator<RootTabsParamList>()
@@ -33,9 +35,6 @@ function MyTabs() {
 }
 
 function EspacioStack() {
-  return (
-    <Stack.Navigator>
-    </Stack.Navigator>
-  )
+  return <Stack.Navigator></Stack.Navigator>
 }
 export default MyStack
