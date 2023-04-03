@@ -1,26 +1,34 @@
 import { MaterialTopTabScreenProps } from '@react-navigation/material-top-tabs'
+import {
+  CompositeScreenProps,
+  NavigatorScreenParams,
+} from '@react-navigation/native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 export type RootStackParamList = {
-  Home: undefined
+  Home: NavigatorScreenParams<RootTabsParamList>
+  Espacio: { id: number }
+  Evento: { id: number }
 }
 export type RootTabsParamList = {
-  Eventos: undefined
   Espacios: undefined
-  Evento: { id: number }
-  Espacio: { id: number }
+  Eventos: undefined
 }
+
 export type HomeProps = NativeStackScreenProps<RootStackParamList, 'Home'>
-export type EspaciosProps = MaterialTopTabScreenProps<
-  RootTabsParamList,
-  'Espacios'
+export type EspaciosProps = CompositeScreenProps<
+  MaterialTopTabScreenProps<RootTabsParamList, 'Espacios'>,
+  NativeStackScreenProps<RootStackParamList>
 >
 export type EspacioProps = MaterialTopTabScreenProps<
-  RootTabsParamList,
+  RootStackParamList,
   'Espacio'
 >
-export type EventosProps = MaterialTopTabScreenProps<
-  RootTabsParamList,
-  'Eventos'
+export type EventosProps = CompositeScreenProps<
+  MaterialTopTabScreenProps<RootTabsParamList, 'Eventos'>,
+  NativeStackScreenProps<RootStackParamList>
 >
-export type EventoProps = MaterialTopTabScreenProps<RootTabsParamList, 'Evento'>
+export type EventoProps = MaterialTopTabScreenProps<
+  RootStackParamList,
+  'Evento'
+>
