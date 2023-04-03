@@ -1,7 +1,34 @@
-query Eventos{
-  eventos{
+query Evento($id: Int!) {
+  evento(id: $id) {
     id
     nombre
-
+    horarios
+    Tipo_evento{
+      id
+      nombre
+    }
+    fecha
+    pases
+    sala
+    duracion
+    Espacio{
+      id
+      nombre
+    }
+    director
+    sinopsis
+    trailer
+    reparto
+    precio
+    img
+  }
+}
+query Eventos {
+  eventos {
+    id
+    nombre
+    horarios
+    fecha
+    img
   }
 }

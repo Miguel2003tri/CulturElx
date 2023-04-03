@@ -226,17 +226,82 @@ export type UpdateTipoEventoInput = {
   nombre?: InputMaybe<Scalars['String']>;
 };
 
+export type EventoQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type EventoQuery = { __typename?: 'Query', evento?: { __typename?: 'Evento', id: number, nombre: string, horarios: string, fecha: string, pases: string, sala: string, duracion: string, director: string, sinopsis: string, trailer: string, reparto: string, precio: number, img: string, Tipo_evento: { __typename?: 'TipoEvento', id: number, nombre: string }, Espacio: { __typename?: 'Espacio', id: number, nombre: string } } | null };
+
 export type EventosQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type EventosQuery = { __typename?: 'Query', eventos: Array<{ __typename?: 'Evento', id: number, nombre: string }> };
+export type EventosQuery = { __typename?: 'Query', eventos: Array<{ __typename?: 'Evento', id: number, nombre: string, horarios: string, fecha: string, img: string }> };
 
 
+export const EventoDocument = gql`
+    query Evento($id: Int!) {
+  evento(id: $id) {
+    id
+    nombre
+    horarios
+    Tipo_evento {
+      id
+      nombre
+    }
+    fecha
+    pases
+    sala
+    duracion
+    Espacio {
+      id
+      nombre
+    }
+    director
+    sinopsis
+    trailer
+    reparto
+    precio
+    img
+  }
+}
+    `;
+
+/**
+ * __useEventoQuery__
+ *
+ * To run a query within a React component, call `useEventoQuery` and pass it any options that fit your needs.
+ * When your component renders, `useEventoQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useEventoQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useEventoQuery(baseOptions: Apollo.QueryHookOptions<EventoQuery, EventoQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<EventoQuery, EventoQueryVariables>(EventoDocument, options);
+      }
+export function useEventoLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<EventoQuery, EventoQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<EventoQuery, EventoQueryVariables>(EventoDocument, options);
+        }
+export type EventoQueryHookResult = ReturnType<typeof useEventoQuery>;
+export type EventoLazyQueryHookResult = ReturnType<typeof useEventoLazyQuery>;
+export type EventoQueryResult = Apollo.QueryResult<EventoQuery, EventoQueryVariables>;
 export const EventosDocument = gql`
     query Eventos {
   eventos {
     id
     nombre
+    horarios
+    fecha
+    img
   }
 }
     `;
