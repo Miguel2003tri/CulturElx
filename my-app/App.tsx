@@ -10,6 +10,14 @@ import MyStack from './src/navigation/Root'
 export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
+      <ApiProvider uri={uri}>
+        <SafeAreaProvider>
+          <NavigationContainer>
+            <MyStack></MyStack>
+          </NavigationContainer>
+        </SafeAreaProvider>
+      </ApiProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
         <NavigationContainer>
           <MyStack></MyStack>

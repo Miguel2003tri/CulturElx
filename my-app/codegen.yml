@@ -1,0 +1,10 @@
+overwrite: true
+schema:
+  - '../.redwood/schema.graphql'
+documents: 'src/api/*.gql'
+generates:
+  src/api/types.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
