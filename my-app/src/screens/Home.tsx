@@ -1,4 +1,5 @@
-import { StatusBar } from 'expo-status-bar'
+import React from 'react'
+
 import { View, Text, StyleSheet } from 'react-native'
 
 import { HomeProps } from '../navigation/types'
@@ -7,7 +8,6 @@ const Home: React.FC<HomeProps> = () => {
   return (
     <View style={styles.container}>
       <Text>Estamos en home</Text>
-      <StatusBar style="auto" />
     </View>
   )
 }

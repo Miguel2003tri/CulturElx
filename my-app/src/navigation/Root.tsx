@@ -15,49 +15,51 @@ const Tabs = createMaterialTopTabNavigator<RootTabsParamList>()
 
 function MyStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{ headerStyle: { backgroundColor: 'orange' } }}
+    >
       <Stack.Screen
         name="Home"
         component={MyTabs}
         options={{
           title: 'CulturElx',
           headerTitleAlign: 'center',
-          headerStyle: { backgroundColor: 'orange' },
         }}
       />
-      <Stack.Screen
-        name="Espacio"
-        component={Espacio}
-        options={{ headerStyle: { backgroundColor: 'orange' } }}
-      />
-      <Stack.Screen
-        name="Evento"
-        component={Evento}
-        options={{ headerStyle: { backgroundColor: 'orange' } }}
-      />
+      <Stack.Screen name="Espacio" component={Espacio} />
+      <Stack.Screen name="Evento" component={Evento} />
     </Stack.Navigator>
   )
 }
 function MyTabs() {
   return (
     <Tabs.Navigator
+      screenOptions={({ route }) => ({
+        tabBarLabel: route.name,
+      })}
       tabBarOptions={{
-        labelStyle: { fontSize: 16 },
-        activeTintColor: 'orange',
         inactiveTintColor: 'gray',
+        style: { backgroundColor: 'orange' },
+        labelStyle: { fontSize: 16, fontWeight: 'bold' },
       }}
     >
       <Tabs.Screen
-        options={{
-          tabBarLabel: 'Eventos',
-        }}
         name="Eventos"
         component={Eventos}
+        options={({ route }) => ({
+          tabBarLabel: 'Eventos',
+          tabBarActiveBackgroundColor:
+            route.name === 'Eventos' ? 'blue' : undefined,
+        })}
       />
       <Tabs.Screen
-        options={{ tabBarLabel: 'Espacios' }}
         name="Espacios"
         component={Espacios}
+        options={({ route }) => ({
+          tabBarLabel: 'Espacios',
+          tabBarActiveBackgroundColor:
+            route.name === 'Espacios' ? 'blue' : undefined,
+        })}
       />
     </Tabs.Navigator>
   )

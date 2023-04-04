@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-import { StatusBar } from 'expo-status-bar'
 import {
   View,
   Text,
@@ -96,7 +95,6 @@ const Evento: React.FC<EventoProps> = ({ route }) => {
               descripcion={data.evento.reparto}
             />
           </View>
-          <StatusBar style="auto" />
         </View>
       </ScrollView>
       <Modal visible={modalVisible} transparent={true}>

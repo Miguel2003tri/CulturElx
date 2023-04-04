@@ -1,6 +1,7 @@
-import { EventoProps } from '../navigation/types'
+import React from 'react'
+
 import { View, Text, StyleSheet } from 'react-native'
-import { useEventoQuery } from '../api'
+
 interface TituloDescripcionProps {
   titulo: string
   descripcion: string
@@ -12,7 +13,9 @@ const TituloDescripcion: React.FC<TituloDescripcionProps> = ({
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>{titulo}</Text>
-      <Text  style={styles.descripcion} id="descripcion">{descripcion}</Text>
+      <Text style={styles.descripcion} id="descripcion">
+        {descripcion}
+      </Text>
     </View>
   )
 }
@@ -30,7 +33,7 @@ const styles = StyleSheet.create({
   },
   descripcion: {
     fontSize: 16,
-    color:'#808080',
+    color: '#808080',
   },
 })
 
