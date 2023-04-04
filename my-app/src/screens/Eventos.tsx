@@ -74,7 +74,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
-
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
@@ -104,6 +103,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginLeft: 50,
     marginRight: 20,
+    resizeMode: 'contain',
   },
   tipo: {
     color: '#804000',

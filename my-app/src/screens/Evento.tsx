@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
   img: {
     width,
     height: height / 2,
+    resizeMode: 'contain',
   },
   tituloprecio: {
     flexDirection: 'row',
