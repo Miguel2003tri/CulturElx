@@ -14,6 +14,8 @@ query Evento($id: Int!) {
     Espacio{
       id
       nombre
+      ubicacion
+
     }
     director
     sinopsis
@@ -30,5 +32,11 @@ query Eventos {
     horarios
     fecha
     img
+    Espacio{
+      ubicacion
+    }
+    Tipo_evento{
+      nombre
+    }
   }
 }

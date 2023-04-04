@@ -1,4 +1,6 @@
 # README
+yarn rw dev / iniciar
+desactivar defender en seccion de seguridad de red
 
 Welcome to [RedwoodJS](https://redwoodjs.com)!
 

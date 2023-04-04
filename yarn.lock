@@ -13506,6 +13506,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"escape-string-regexp@npm:2.0.0, escape-string-regexp@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "escape-string-regexp@npm:2.0.0"
+  checksum: 2530479fe8db57eace5e8646c9c2a9c80fa279614986d16dcc6bcaceb63ae77f05a851ba6c43756d816c61d7f4534baf56e3c705e3e0d884818a46808811c507
+  languageName: node
+  linkType: hard
+
 "escape-string-regexp@npm:4.0.0, escape-string-regexp@npm:^4.0.0":
   version: 4.0.0
   resolution: "escape-string-regexp@npm:4.0.0"
@@ -13517,13 +13524,6 @@ __metadata:
   version: 1.0.5
   resolution: "escape-string-regexp@npm:1.0.5"
   checksum: a968ad453dd0c2724e14a4f20e177aaf32bb384ab41b674a8454afe9a41c5e6fe8903323e0a1052f56289d04bd600f81278edf140b0fcc02f5cac98d0f5b5371
-  languageName: node
-  linkType: hard
-
-"escape-string-regexp@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "escape-string-regexp@npm:2.0.0"
-  checksum: 2530479fe8db57eace5e8646c9c2a9c80fa279614986d16dcc6bcaceb63ae77f05a851ba6c43756d816c61d7f4534baf56e3c705e3e0d884818a46808811c507
   languageName: node
   linkType: hard
 
@@ -16595,7 +16595,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"invariant@npm:*, invariant@npm:^2.2.4":
+"invariant@npm:*, invariant@npm:2.2.4, invariant@npm:^2.2.4":
   version: 2.2.4
   resolution: "invariant@npm:2.2.4"
   dependencies:
@@ -20360,6 +20360,8 @@ __metadata:
     react-native-safe-area-context: 4.5.0
     react-native-screens: ~3.20.0
     react-native-tab-view: ^3.5.1
+    react-native-webview: 11.26.0
+    react-native-youtube-iframe: ^2.2.2
     typescript: ^5.0.3
   languageName: unknown
   linkType: soft
@@ -23317,6 +23319,38 @@ __metadata:
     react-native: "*"
     react-native-pager-view: "*"
   checksum: a4b1a3c49618cbe0ee041fce03897e1ea4bf4cad9bdbbe3167ba74be5b1b0d495ee6376a1150ecb9be333ad692baf1877c79af37d2baea864ace1d30c98d0719
+  languageName: node
+  linkType: hard
+
+"react-native-webview@npm:11.26.0":
+  version: 11.26.0
+  resolution: "react-native-webview@npm:11.26.0"
+  dependencies:
+    escape-string-regexp: 2.0.0
+    invariant: 2.2.4
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: b0b596598685970a96fd1368996b5f9e67335cbe1b79c2a402f297df81fd9347c2e3eccd7bca82939b8d69264d3e884ed3eb17ccf7896cd5d3a45584620f13da
+  languageName: node
+  linkType: hard
+
+"react-native-youtube-iframe@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "react-native-youtube-iframe@npm:2.2.2"
+  dependencies:
+    events: ^3.2.0
+  peerDependencies:
+    react: ">=16.8.6"
+    react-native: ">=0.60"
+    react-native-web-webview: ">=1.0.2"
+    react-native-webview: ">=7.0.0"
+  peerDependenciesMeta:
+    react-native-web-webview:
+      optional: true
+    react-native-webview:
+      optional: true
+  checksum: 9fe23e5c01d18aae2c63102ed17d0954979fae3a2040a2e2bc26c4210b09279b94b1d2dae3a7bddbca89aafe4d8bf59946f7d3d802bb186e7404b9e4dc1697ee
   languageName: node
   linkType: hard
 

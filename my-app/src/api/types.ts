@@ -231,12 +231,12 @@ export type EventoQueryVariables = Exact<{
 }>;
 
 
-export type EventoQuery = { __typename?: 'Query', evento?: { __typename?: 'Evento', id: number, nombre: string, horarios: string, fecha: string, pases: string, sala: string, duracion: string, director: string, sinopsis: string, trailer: string, reparto: string, precio: number, img: string, Tipo_evento: { __typename?: 'TipoEvento', id: number, nombre: string }, Espacio: { __typename?: 'Espacio', id: number, nombre: string } } | null };
+export type EventoQuery = { __typename?: 'Query', evento?: { __typename?: 'Evento', id: number, nombre: string, horarios: string, fecha: string, pases: string, sala: string, duracion: string, director: string, sinopsis: string, trailer: string, reparto: string, precio: number, img: string, Tipo_evento: { __typename?: 'TipoEvento', id: number, nombre: string }, Espacio: { __typename?: 'Espacio', id: number, nombre: string, ubicacion: string } } | null };
 
 export type EventosQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type EventosQuery = { __typename?: 'Query', eventos: Array<{ __typename?: 'Evento', id: number, nombre: string, horarios: string, fecha: string, img: string }> };
+export type EventosQuery = { __typename?: 'Query', eventos: Array<{ __typename?: 'Evento', id: number, nombre: string, horarios: string, fecha: string, img: string, Espacio: { __typename?: 'Espacio', ubicacion: string }, Tipo_evento: { __typename?: 'TipoEvento', nombre: string } }> };
 
 
 export const EventoDocument = gql`
@@ -256,6 +256,7 @@ export const EventoDocument = gql`
     Espacio {
       id
       nombre
+      ubicacion
     }
     director
     sinopsis
@@ -302,6 +303,12 @@ export const EventosDocument = gql`
     horarios
     fecha
     img
+    Espacio {
+      ubicacion
+    }
+    Tipo_evento {
+      nombre
+    }
   }
 }
     `;

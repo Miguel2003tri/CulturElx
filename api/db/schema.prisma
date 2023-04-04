@@ -23,7 +23,7 @@ model Espacio {
   nombre    String
   lat       Decimal
   lng       Decimal
-  ubicacion String
+  ubicacion String?
   Eventos   Evento[]
   img       String?  @default("null")
 }
@@ -40,12 +40,14 @@ model Evento {
   duracion      String
   Espacio       Espacio    @relation(fields: [espacioId], references: [id])
   espacioId     Int
-  director      String
+  director      String?
   sinopsis      String
   trailer       String?
   reparto       String?
   precio        Int
   img           String?
+  // ubicacion     String?
+  // direccion     String?
 }
 
 model User {
