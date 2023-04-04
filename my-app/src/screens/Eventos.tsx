@@ -13,8 +13,6 @@ import {
 import { NetworkStatus, useEventosQuery } from '../api'
 import { EventosProps } from '../navigation/types'
 
-import Espacios from './Espacios'
-
 const Eventos: React.FC<EventosProps> = ({ navigation }) => {
   const { data, loading, refetch, networkStatus } = useEventosQuery({
     notifyOnNetworkStatusChange: true,

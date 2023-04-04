@@ -8,6 +8,7 @@ import {
   FlatList,
   RefreshControl,
   Pressable,
+  Image,
 } from 'react-native'
 
 import { NetworkStatus, useEspacioQuery } from '../api'
@@ -32,7 +33,6 @@ const Espacio: React.FC<EspacioProps> = ({ route, navigation }) => {
     )
   }
 
-  console.log({ data, error })
   return (
     <View style={styles.container}>
       <FlatList
@@ -56,7 +56,21 @@ const Espacio: React.FC<EspacioProps> = ({ route, navigation }) => {
                   navigation.navigate('Evento', { id: item.id })
                 }}
               >
-                <Text>{item.nombre}</Text>
+                <View style={styles.container}>
+                  <View>
+                    <Image
+                      style={styles.img}
+                      source={{ uri: item.img }}
+                    ></Image>
+                  </View>
+                  <View style={styles.text}>
+                    <Text style={styles.texto}>{item.nombre}</Text>
+                    <Text style={styles.hora}>
+                      {item.fecha} - {item.Espacio.ubicacion}
+                    </Text>
+                    <Text style={styles.tipo}>{item.Tipo_evento.nombre}</Text>
+                  </View>
+                </View>
               </Pressable>
             </View>
           )
@@ -67,10 +81,40 @@ const Espacio: React.FC<EspacioProps> = ({ route, navigation }) => {
 }
 const styles = StyleSheet.create({
   container: {
+    flexDirection: 'row',
+
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    fontWeight: 'bold',
+    padding: 25,
+  },
+  texto: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    padding: 5,
+  },
+  text: {
+    paddingRight: 50,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
+  floatlistcontainer: {
+    flex: 1,
+    padding: 10,
+  },
+  hora: {},
+  img: {
+    width: 70,
+    height: 70,
+    borderRadius: 15,
+    marginLeft: 50,
+    marginRight: 20,
+  },
+  tipo: {
+    color: '#804000',
   },
 })
 

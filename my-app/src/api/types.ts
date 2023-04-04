@@ -236,7 +236,7 @@ export type EspacioQueryVariables = Exact<{
 }>;
 
 
-export type EspacioQuery = { __typename?: 'Query', espacio?: { __typename?: 'Espacio', id: number, Eventos: Array<{ __typename?: 'Evento', id: number, nombre: string, fecha: string, img: string } | null> } | null };
+export type EspacioQuery = { __typename?: 'Query', espacio?: { __typename?: 'Espacio', id: number, ubicacion: string, Eventos: Array<{ __typename?: 'Evento', id: number, nombre: string, horarios: string, fecha: string, pases: string, sala: string, duracion: string, director: string, sinopsis: string, trailer: string, reparto: string, precio: number, img: string, Tipo_evento: { __typename?: 'TipoEvento', id: number, nombre: string }, Espacio: { __typename?: 'Espacio', id: number, nombre: string, ubicacion: string } } | null> } | null };
 
 export type EventoQueryVariables = Exact<{
   id: Scalars['Int'];
@@ -295,9 +295,28 @@ export const EspacioDocument = gql`
     Eventos {
       id
       nombre
+      horarios
+      Tipo_evento {
+        id
+        nombre
+      }
       fecha
+      pases
+      sala
+      duracion
+      Espacio {
+        id
+        nombre
+        ubicacion
+      }
+      director
+      sinopsis
+      trailer
+      reparto
+      precio
       img
     }
+    ubicacion
   }
 }
     `;

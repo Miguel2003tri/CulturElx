@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 15,
+    resizeMode: 'contain',
   },
   lastImg: {
     display: 'flex',

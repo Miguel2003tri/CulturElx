@@ -11,11 +11,9 @@ import {
   Linking,
 } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
-import Youtubeplayer from 'react-native-youtube-iframe'
 
 import { useEventoQuery } from '../api'
 import TituloDescripcion from '../componetes/TituloDescripcion'
-import { getVideoId } from '../lib/getVideoId'
 import { EventoProps } from '../navigation/types'
 const { width, height } = Dimensions.get('window')
 

@@ -9,12 +9,29 @@ query Espacios{
 
 query Espacio($id:Int!) {
   espacio(id: $id){
-    id
     Eventos{
       id
+    nombre
+    horarios
+    Tipo_evento{
+      id
       nombre
-      fecha
-      img
+    }
+    fecha
+    pases
+    sala
+    duracion
+    Espacio{
+      id
+      nombre
+      ubicacion
+    }
+    director
+    sinopsis
+    trailer
+    reparto
+    precio
+    img
     }
   }
 }
