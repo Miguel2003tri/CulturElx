@@ -62,5 +62,4 @@ function MyTabs() {
     </Tabs.Navigator>
   )
 }
-
 export default MyStack
