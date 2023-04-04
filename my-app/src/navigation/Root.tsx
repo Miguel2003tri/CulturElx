@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
@@ -17,18 +19,38 @@ function MyStack() {
       <Stack.Screen
         name="Home"
         component={MyTabs}
-        options={{ title: 'CulturElx', headerTitleAlign: 'center' }}
+        options={{
+          title: 'CulturElx',
+          headerTitleAlign: 'center',
+          headerStyle: { backgroundColor: 'orange' },
+        }}
       />
-      <Stack.Screen name="Espacio" component={Espacio} />
-      <Stack.Screen name="Evento" component={Evento} />
+      <Stack.Screen
+        name="Espacio"
+        component={Espacio}
+        options={{ headerStyle: { backgroundColor: 'orange' } }}
+      />
+      <Stack.Screen
+        name="Evento"
+        component={Evento}
+        options={{ headerStyle: { backgroundColor: 'orange' } }}
+      />
     </Stack.Navigator>
   )
 }
 function MyTabs() {
   return (
-    <Tabs.Navigator>
+    <Tabs.Navigator
+      tabBarOptions={{
+        labelStyle: { fontSize: 16 },
+        activeTintColor: 'orange',
+        inactiveTintColor: 'gray',
+      }}
+    >
       <Tabs.Screen
-        options={{ tabBarLabel: 'Eventos' }}
+        options={{
+          tabBarLabel: 'Eventos',
+        }}
         name="Eventos"
         component={Eventos}
       />
