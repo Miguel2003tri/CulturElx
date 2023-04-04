@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 
 import { StatusBar } from 'expo-status-bar'
 import {
@@ -17,9 +18,16 @@ import TituloDescripcion from '../componetes/TituloDescripcion'
 import { EventoProps } from '../navigation/types'
 const { width, height } = Dimensions.get('window')
 
-const Evento: React.FC<EventoProps> = ({ route }) => {
+const Evento: React.FC<EventoProps> = ({ route,navigation }) => {
   const { id } = route.params
   const { data, loading } = useEventoQuery({ variables: { id } })
+
+  useEffect(() => {
+    if (data) {
+      navigation.setOptions({ title: data.evento.nombre })
+    }
+  }, [data?.evento.nombre])
+
   if (loading) {
     return (
       <View style={styles.container}>
@@ -67,7 +75,6 @@ const Evento: React.FC<EventoProps> = ({ route }) => {
           />
         </View>
         <View style={styles.row}>
-          {/* <Youtubeplayer videoId={getVideoId(data.evento.trailer)} height={210}  /> */}
           <View style={styles.boton}>
             <Button
               title="Ver trailer"

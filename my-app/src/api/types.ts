@@ -236,7 +236,7 @@ export type EspacioQueryVariables = Exact<{
 }>;
 
 
-export type EspacioQuery = { __typename?: 'Query', espacio?: { __typename?: 'Espacio', id: number, ubicacion: string, Eventos: Array<{ __typename?: 'Evento', id: number, nombre: string, horarios: string, fecha: string, pases: string, sala: string, duracion: string, director: string, sinopsis: string, trailer: string, reparto: string, precio: number, img: string, Tipo_evento: { __typename?: 'TipoEvento', id: number, nombre: string }, Espacio: { __typename?: 'Espacio', id: number, nombre: string, ubicacion: string } } | null> } | null };
+export type EspacioQuery = { __typename?: 'Query', espacio?: { __typename?: 'Espacio', id: number, nombre: string, lat: number, lng: number, Eventos: Array<{ __typename?: 'Evento', id: number, nombre: string, horarios: string, fecha: string, pases: string, sala: string, duracion: string, director: string, sinopsis: string, trailer: string, reparto: string, precio: number, img: string, Tipo_evento: { __typename?: 'TipoEvento', id: number, nombre: string } } | null> } | null };
 
 export type EventoQueryVariables = Exact<{
   id: Scalars['Int'];
@@ -292,6 +292,9 @@ export const EspacioDocument = gql`
     query Espacio($id: Int!) {
   espacio(id: $id) {
     id
+    nombre
+    lat
+    lng
     Eventos {
       id
       nombre
@@ -304,11 +307,6 @@ export const EspacioDocument = gql`
       pases
       sala
       duracion
-      Espacio {
-        id
-        nombre
-        ubicacion
-      }
       director
       sinopsis
       trailer
@@ -316,7 +314,6 @@ export const EspacioDocument = gql`
       precio
       img
     }
-    ubicacion
   }
 }
     `;

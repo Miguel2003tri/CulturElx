@@ -1,5 +1,5 @@
-query Espacios{
-  espacios{
+query Espacios {
+  espacios {
     id
     nombre
     img
@@ -7,31 +7,30 @@ query Espacios{
   }
 }
 
-query Espacio($id:Int!) {
-  espacio(id: $id){
-    Eventos{
-      id
+query Espacio($id: Int!) {
+  espacio(id: $id) {
+    id
     nombre
-    horarios
-    Tipo_evento{
+    lat
+    lng
+    Eventos {
       id
       nombre
-    }
-    fecha
-    pases
-    sala
-    duracion
-    Espacio{
-      id
-      nombre
-      ubicacion
-    }
-    director
-    sinopsis
-    trailer
-    reparto
-    precio
-    img
+      horarios
+      Tipo_evento {
+        id
+        nombre
+      }
+      fecha
+      pases
+      sala
+      duracion
+      director
+      sinopsis
+      trailer
+      reparto
+      precio
+      img
     }
   }
 }
@@ -41,7 +40,7 @@ query Evento($id: Int!) {
     id
     nombre
     horarios
-    Tipo_evento{
+    Tipo_evento {
       id
       nombre
     }
@@ -49,11 +48,10 @@ query Evento($id: Int!) {
     pases
     sala
     duracion
-    Espacio{
+    Espacio {
       id
       nombre
       ubicacion
-
     }
     director
     sinopsis
@@ -70,10 +68,10 @@ query Eventos {
     horarios
     fecha
     img
-    Espacio{
+    Espacio {
       ubicacion
     }
-    Tipo_evento{
+    Tipo_evento {
       nombre
     }
   }
