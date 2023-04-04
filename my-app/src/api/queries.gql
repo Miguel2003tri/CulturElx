@@ -1,10 +1,3 @@
-query Eventos{
-  eventos{
-    id
-    nombre
-  }
-}
-
 query Espacios{
   espacios{
     id
@@ -23,6 +16,48 @@ query Espacio($id:Int!) {
       fecha
       img
     }
+  }
+}
+
+query Evento($id: Int!) {
+  evento(id: $id) {
+    id
     nombre
+    horarios
+    Tipo_evento{
+      id
+      nombre
+    }
+    fecha
+    pases
+    sala
+    duracion
+    Espacio{
+      id
+      nombre
+      ubicacion
+
+    }
+    director
+    sinopsis
+    trailer
+    reparto
+    precio
+    img
+  }
+}
+query Eventos {
+  eventos {
+    id
+    nombre
+    horarios
+    fecha
+    img
+    Espacio{
+      ubicacion
+    }
+    Tipo_evento{
+      nombre
+    }
   }
 }
