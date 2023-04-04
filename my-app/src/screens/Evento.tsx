@@ -1,9 +1,10 @@
-import { View, Text, StyleSheet } from 'react-native'
-import { EventoProps } from '../navigation/types'
 import { StatusBar } from 'expo-status-bar'
+import { View, Text, StyleSheet } from 'react-native'
 
-const Evento: React.FC<EventoProps> = ({route}) => {
-  const {id}=route.params
+import { EventoProps } from '../navigation/types'
+
+const Evento: React.FC<EventoProps> = ({ route }) => {
+  const { id } = route.params
   return (
     <View style={styles.container}>
       <Text>Estamos en Evento {id}</Text>

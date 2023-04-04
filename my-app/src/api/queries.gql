@@ -2,6 +2,27 @@ query Eventos{
   eventos{
     id
     nombre
+  }
+}
 
+query Espacios{
+  espacios{
+    id
+    nombre
+    img
+    ubicacion
+  }
+}
+
+query Espacio($id:Int!) {
+  espacio(id: $id){
+    id
+    Eventos{
+      id
+      nombre
+      fecha
+      img
+    }
+    nombre
   }
 }

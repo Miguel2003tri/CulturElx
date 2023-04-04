@@ -1,13 +1,67 @@
-import { View, Text, StyleSheet } from 'react-native'
-import { EspacioProps } from '../navigation/types'
-import { StatusBar } from 'expo-status-bar'
+import { useEffect } from 'react'
+import React from 'react'
 
-const Espacio: React.FC<EspacioProps> = ({route}) => {
-  const {id}=route.params
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  RefreshControl,
+  Pressable,
+} from 'react-native'
+
+import { NetworkStatus, useEspacioQuery } from '../api'
+import { EspacioProps } from '../navigation/types'
+
+const Espacio: React.FC<EspacioProps> = ({ route, navigation }) => {
+  const { id } = route.params
+  const { data, loading, refetch, networkStatus, error } = useEspacioQuery({
+    notifyOnNetworkStatusChange: true,
+    variables: { id },
+  })
+  useEffect(() => {
+    if (data) {
+      navigation.setOptions({ title: data.espacio.nombre })
+    }
+  }, [data?.espacio.nombre])
+  if (loading) {
+    return (
+      <View style={styles.container}>
+        <Text>Cargando ...</Text>
+      </View>
+    )
+  }
+
+  console.log({ data, error })
   return (
     <View style={styles.container}>
-      <Text>Estamos en Espacio{id}</Text>
-      <StatusBar style="auto" />
+      <FlatList
+        refreshControl={
+          <RefreshControl
+            refreshing={networkStatus === NetworkStatus.refetch}
+            onRefresh={refetch}
+          ></RefreshControl>
+        }
+        data={data?.espacio.Eventos}
+        ListEmptyComponent={
+          <View style={styles.container}>
+            <Text>No hay eventos para este espacio</Text>
+          </View>
+        }
+        renderItem={({ item }) => {
+          return (
+            <View>
+              <Pressable
+                onPress={() => {
+                  navigation.navigate('Evento', { id: item.id })
+                }}
+              >
+                <Text>{item.nombre}</Text>
+              </Pressable>
+            </View>
+          )
+        }}
+      />
     </View>
   )
 }

@@ -11,6 +11,7 @@
   "conventionalCommits.scopes": [
     "web",
     "api",
-    "app"
+    "app",
+    "Espacios"
   ]
 }
