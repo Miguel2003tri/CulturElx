@@ -1,7 +1,6 @@
-import React from 'react'
 import { useEffect } from 'react'
+import React, { useState } from 'react'
 
-import { StatusBar } from 'expo-status-bar'
 import {
   View,
   Text,
@@ -10,6 +9,9 @@ import {
   Dimensions,
   Button,
   Linking,
+  TouchableWithoutFeedback,
+  Modal,
+  TouchableOpacity,
 } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 
@@ -28,6 +30,7 @@ const Evento: React.FC<EventoProps> = ({ route,navigation }) => {
     }
   }, [data?.evento.nombre])
 
+  const [modalVisible, setModalVisible] = useState(false)
   if (loading) {
     return (
       <View style={styles.container}>
@@ -35,64 +38,88 @@ const Evento: React.FC<EventoProps> = ({ route,navigation }) => {
       </View>
     )
   }
+
   return (
-    <ScrollView style={styles.scroll}>
-      <View style={styles.container}>
-        <Image style={styles.img} source={{ uri: data.evento.img }}></Image>
+    <View style={styles.scroll}>
+      <ScrollView style={styles.scroll}>
+        <View style={styles.container}>
+          <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
+            <Image style={styles.img} source={{ uri: data.evento.img }} />
+          </TouchableWithoutFeedback>
 
-        <View style={styles.tituloprecio}>
-          <Text style={styles.titulo}>{data.evento.nombre}</Text>
-          <Text style={styles.precio}>{data.evento.precio}€</Text>
-        </View>
+          <View style={styles.tituloprecio}>
+            <Text style={styles.titulo}>{data.evento.nombre}</Text>
+            <Text style={styles.precio}>{data.evento.precio}€</Text>
+          </View>
 
-        <View style={styles.row}>
-          <TituloDescripcion titulo={'Fecha'} descripcion={data.evento.fecha} />
-          <TituloDescripcion titulo={'Pases'} descripcion={data.evento.pases} />
-        </View>
+          <View style={styles.row}>
+            <TituloDescripcion
+              titulo={'Fecha'}
+              descripcion={data.evento.fecha}
+            />
+            <TituloDescripcion
+              titulo={'Pases'}
+              descripcion={data.evento.pases}
+            />
+          </View>
 
-        <View style={styles.row}>
-          <TituloDescripcion titulo={'Sala'} descripcion={data.evento.sala} />
-          <TituloDescripcion
-            titulo={'Duracion'}
-            descripcion={data.evento.duracion}
-          />
-        </View>
+          <View style={styles.row}>
+            <TituloDescripcion titulo={'Sala'} descripcion={data.evento.sala} />
+            <TituloDescripcion
+              titulo={'Duracion'}
+              descripcion={data.evento.duracion}
+            />
+          </View>
 
-        <View style={styles.row}>
-          <TituloDescripcion
-            titulo={'Ubicacion'}
-            descripcion={data.evento.Espacio.ubicacion}
-          />
-          <TituloDescripcion
-            titulo={'Director'}
-            descripcion={data.evento.director}
-          />
-        </View>
-        <View style={styles.row}>
-          <TituloDescripcion
-            titulo={'Sinopsis'}
-            descripcion={data.evento.sinopsis}
-          />
-        </View>
-        <View style={styles.row}>
-          <View style={styles.boton}>
-            <Button
-              title="Ver trailer"
-              onPress={() => {
-                Linking.openURL(data.evento.trailer)
-              }}
+          <View style={styles.row}>
+            <TituloDescripcion
+              titulo={'Ubicacion'}
+              descripcion={data.evento.Espacio.ubicacion}
+            />
+            <TituloDescripcion
+              titulo={'Director'}
+              descripcion={data.evento.director}
+            />
+          </View>
+          <View style={styles.row}>
+            <TituloDescripcion
+              titulo={'Sinopsis'}
+              descripcion={data.evento.sinopsis}
+            />
+          </View>
+          <View style={styles.row}>
+            <View style={styles.boton}>
+              <Button
+                title="Ver trailer"
+                onPress={() => {
+                  Linking.openURL(data.evento.trailer)
+                }}
+              />
+            </View>
+          </View>
+          <View style={styles.row}>
+            <TituloDescripcion
+              titulo={'Reparto'}
+              descripcion={data.evento.reparto}
             />
           </View>
         </View>
-        <View style={styles.row}>
-          <TituloDescripcion
-            titulo={'Reparto'}
-            descripcion={data.evento.reparto}
-          />
+      </ScrollView>
+      <Modal visible={modalVisible} transparent={true}>
+        <View style={styles.modalContainer}>
+          <Image style={styles.modalImg} source={{ uri: data.evento.img }} />
+
+          <View style={styles.container2}>
+            <TouchableOpacity
+              style={styles.modalCloseButton}
+              onPress={() => setModalVisible(false)}
+            >
+              <Text style={styles.modalCloseText}>X</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <StatusBar style="auto" />
-      </View>
-    </ScrollView>
+      </Modal>
+    </View>
   )
 }
 const styles = StyleSheet.create({
@@ -135,6 +162,48 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     paddingTop: 20,
     paddingRight: 10,
+  },
+  modalContainer: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.8)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modalImg: {
+    width: '80%',
+    height: '80%',
+    resizeMode: 'contain',
+  },
+  modalCloseButton: {
+    position: 'absolute',
+    top: 40,
+    marginLeft: 50,
+    marginBottom: 50,
+    backgroundColor: 'orange',
+    padding: 10,
+    borderRadius: 5,
+    margin: 20,
+    textAlign: 'center',
+    alignItems: 'center',
+  },
+  container2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+  },
+
+  modalCloseText: {
+    fontSize: 18,
+    textAlign: 'center',
+    borderRadius: 10,
+    overflow: 'hidden',
+    width: 20,
+    height: 20,
+    lineHeight: 20,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 })
 

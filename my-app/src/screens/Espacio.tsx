@@ -17,7 +17,7 @@ import Ubicacion from '../componetes/Ubicacion'
 
 const Espacio: React.FC<EspacioProps> = ({ route, navigation }) => {
   const { id } = route.params
-  const { data, loading, refetch, networkStatus, error } = useEspacioQuery({
+  const { data, loading, refetch, networkStatus } = useEspacioQuery({
     notifyOnNetworkStatusChange: true,
     variables: { id },
   })
