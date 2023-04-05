@@ -12,8 +12,8 @@ import {
 } from 'react-native'
 
 import { NetworkStatus, useEspacioQuery } from '../api'
-import { EspacioProps } from '../navigation/types'
 import Ubicacion from '../componetes/Ubicacion'
+import { EspacioProps } from '../navigation/types'
 
 const Espacio: React.FC<EspacioProps> = ({ route, navigation }) => {
   const { id } = route.params
@@ -80,8 +80,12 @@ const Espacio: React.FC<EspacioProps> = ({ route, navigation }) => {
         }}
       />
       {data?.espacio.lat && data?.espacio.lng && (
-          <View style={styles.map}>
-        <Ubicacion  lat={data.espacio.lat} long={data.espacio.lng} title={data.espacio.nombre} />
+        <View style={styles.map}>
+          <Ubicacion
+            lat={data.espacio.lat}
+            long={data.espacio.lng}
+            title={data.espacio.nombre}
+          />
         </View>
       )}
     </View>
@@ -113,9 +117,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   map: {
-    alignItems:'center',
+    alignItems: 'center',
     backgroundColor: '#fff',
-
   },
   img: {
     width: 70,

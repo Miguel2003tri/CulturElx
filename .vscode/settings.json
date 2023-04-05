@@ -15,5 +15,6 @@
     "Espacios",
     "Detalle de los espacios acabado",
     "Imgs"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

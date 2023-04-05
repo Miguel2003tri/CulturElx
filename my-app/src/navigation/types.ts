@@ -32,3 +32,8 @@ export type EventoProps = MaterialTopTabScreenProps<
   RootStackParamList,
   'Evento'
 >
+
+export type EspaciosFavoritosProps = CompositeScreenProps<
+  MaterialTopTabScreenProps<RootTabsParamList, 'Espacios'>,
+  NativeStackScreenProps<RootStackParamList>
+>

@@ -7,6 +7,7 @@ import Espacio from '../screens/Espacio'
 import Espacios from '../screens/Espacios'
 import Evento from '../screens/Evento'
 import Eventos from '../screens/Eventos'
+import EventosFavoritos from '../screens/EventosFavoritos'
 
 import { RootStackParamList, RootTabsParamList } from './types'
 
@@ -28,6 +29,7 @@ function MyStack() {
       />
       <Stack.Screen name="Espacio" component={Espacio} />
       <Stack.Screen name="Evento" component={Evento} />
+      <Stack.Screen name="EventosFavoritos" component={EventosFavoritos} />
     </Stack.Navigator>
   )
 }
@@ -36,12 +38,15 @@ function MyTabs() {
     <Tabs.Navigator
       screenOptions={({ route }) => ({
         tabBarLabel: route.name,
+        tabBarInactiveTintColor: 'gray',
+        tabBarLabelStyle: {
+          fontSize: 16,
+          fontWeight: 'bold',
+        },
+        tabBarStyle: {
+          backgroundColor: 'orange',
+        },
       })}
-      // tabBarOptions={{
-      //   inactiveTintColor: 'gray',
-      //   style: { backgroundColor: 'orange' },
-      //   labelStyle: { fontSize: 16, fontWeight: 'bold' },
-      // }}
     >
       <Tabs.Screen
         name="Eventos"
@@ -59,6 +64,15 @@ function MyTabs() {
           tabBarLabel: 'Espacios',
           tabBarActiveBackgroundColor:
             route.name === 'Espacios' ? 'blue' : undefined,
+        })}
+      />
+      <Tabs.Screen
+        name="EventosFavoritos"
+        component={EventosFavoritos}
+        options={({ route }) => ({
+          tabBarLabel: 'EventosFavoritos',
+          tabBarActiveBackgroundColor:
+            route.name === 'EventosFavoritos' ? 'blue' : undefined,
         })}
       />
     </Tabs.Navigator>
