@@ -39,7 +39,7 @@ const Espacios: React.FC<EspaciosProps> = ({ navigation }) => {
         data={data?.espacios}
         ListEmptyComponent={
           <View style={styles.container}>
-            <Text>No hay espacios</Text>
+            <Text>No hay espacios disponibles</Text>
           </View>
         }
         renderItem={({ item }) => {
@@ -85,6 +85,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontWeight: 'bold',
     paddingLeft: 5,
     paddingRight: 5,
     paddingTop: 20,

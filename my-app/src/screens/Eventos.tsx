@@ -44,7 +44,7 @@ const Eventos: React.FC<EventosProps> = ({ navigation }) => {
       renderItem={({ item }) => {
         return (
           <Pressable
-          style={styles.presable}
+            style={styles.presable}
             onPress={() => {
               navigation.navigate('Evento', { id: item.id })
             }}
@@ -68,9 +68,8 @@ const Eventos: React.FC<EventosProps> = ({ navigation }) => {
   )
 }
 const styles = StyleSheet.create({
-  presable:{
+  presable: {
     backgroundColor: '#F9BB23',
-
   },
   container: {
     flexDirection: 'row',

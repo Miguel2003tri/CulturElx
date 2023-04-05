@@ -37,11 +37,11 @@ function MyTabs() {
       screenOptions={({ route }) => ({
         tabBarLabel: route.name,
       })}
-      tabBarOptions={{
-        inactiveTintColor: 'gray',
-        style: { backgroundColor: 'orange' },
-        labelStyle: { fontSize: 16, fontWeight: 'bold' },
-      }}
+      // tabBarOptions={{
+      //   inactiveTintColor: 'gray',
+      //   style: { backgroundColor: 'orange' },
+      //   labelStyle: { fontSize: 16, fontWeight: 'bold' },
+      // }}
     >
       <Tabs.Screen
         name="Eventos"
