@@ -17,7 +17,7 @@ export default function App() {
       <ApiProvider uri={uri}>
         <SafeAreaProvider>
           <NavigationContainer>
-            <MyStack></MyStack>
+              <MyStack></MyStack>
           </NavigationContainer>
         </SafeAreaProvider>
       </ApiProvider>

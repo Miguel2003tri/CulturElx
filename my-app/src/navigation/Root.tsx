@@ -1,4 +1,4 @@
-import React from 'react'
+import 'react-native-gesture-handler'
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
@@ -10,29 +10,53 @@ import Eventos from '../screens/Eventos'
 import EventosFavoritos from '../screens/EventosFavoritos'
 
 import { RootStackParamList, RootTabsParamList } from './types'
+import { View, Text } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+// import Drawer from '../componetes/Deawer'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import DrawerLateral from '../componetes/DrawerLateral'
+const Drawer = createDrawerNavigator()
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 const Tabs = createMaterialTopTabNavigator<RootTabsParamList>()
 
 function MyStack() {
   return (
-    <Stack.Navigator
-      screenOptions={{ headerStyle: { backgroundColor: 'orange' } }}
-    >
-      <Stack.Screen
-        name="Home"
-        component={MyTabs}
-        options={{
-          title: 'CulturElx',
-          headerTitleAlign: 'center',
-        }}
-      />
-      <Stack.Screen name="Espacio" component={Espacio} />
-      <Stack.Screen name="Evento" component={Evento} />
-      <Stack.Screen name="Eventos Favoritos" component={EventosFavoritos} />
-    </Stack.Navigator>
+    <>
+      <Stack.Navigator
+        screenOptions={{ headerStyle: { backgroundColor: 'orange' } }}
+      >
+        <Stack.Screen
+          name="Home"
+          component={MyTabs}
+          options={{
+            title: 'CulturElx',
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen name="Espacio" component={Espacio} />
+        <Stack.Screen name="Evento" component={Evento} />
+        <Stack.Screen name="Favoritos" component={EventosFavoritos} />
+
+      </Stack.Navigator>
+
+      </>
   )
 }
+function MyDrawer() {
+  return (
+
+      <Drawer.Navigator
+        drawerContent={(props) => (
+          <DrawerLateral {...props}></DrawerLateral>
+        )}
+        screenOptions={{ headerShown: false }}
+      >
+        <Drawer.Screen name="Root" component={MyStack} />
+      </Drawer.Navigator>
+  )
+}
+
 function MyTabs() {
   return (
     <Tabs.Navigator
@@ -66,16 +90,8 @@ function MyTabs() {
             route.name === 'Espacios' ? 'blue' : undefined,
         })}
       />
-      <Tabs.Screen
-        name="Eventos Favoritos"
-        component={EventosFavoritos}
-        options={({ route }) => ({
-          tabBarLabel: 'Eventos Favoritos',
-          tabBarActiveBackgroundColor:
-            route.name === 'Eventos Favoritos' ? 'blue' : undefined,
-        })}
-      />
+
     </Tabs.Navigator>
   )
 }
-export default MyStack
+export default MyDrawer

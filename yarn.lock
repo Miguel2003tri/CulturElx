@@ -1555,6 +1555,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/plugin-transform-object-assign@npm:^7.16.7":
+  version: 7.18.6
+  resolution: "@babel/plugin-transform-object-assign@npm:7.18.6"
+  dependencies:
+    "@babel/helper-plugin-utils": ^7.18.6
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: b2f4cab1711aec961ae0696a70a9f6152e04d9660fdde1179ce9b613475b0ec9aecee4f0e21f622b1962acd61364ebbf875cda699c97d70209628096689aee70
+  languageName: node
+  linkType: hard
+
 "@babel/plugin-transform-object-super@npm:^7.0.0, @babel/plugin-transform-object-super@npm:^7.18.6":
   version: 7.18.6
   resolution: "@babel/plugin-transform-object-super@npm:7.18.6"
@@ -2035,7 +2046,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-typescript@npm:^7.12.7, @babel/preset-typescript@npm:^7.13.0":
+"@babel/preset-typescript@npm:^7.12.7, @babel/preset-typescript@npm:^7.13.0, @babel/preset-typescript@npm:^7.16.7":
   version: 7.21.4
   resolution: "@babel/preset-typescript@npm:7.21.4"
   dependencies:
@@ -5133,6 +5144,25 @@ __metadata:
   peerDependencies:
     react: "*"
   checksum: a588faa9dc2f0784adcc467e4f00c5975607ec3fffd8afd780b5a71e3d428009586298a68fc883fbc3f41c68f4c5e9f8a75af4f296df6939c4273c251a648c47
+  languageName: node
+  linkType: hard
+
+"@react-navigation/drawer@npm:^6.6.2":
+  version: 6.6.2
+  resolution: "@react-navigation/drawer@npm:6.6.2"
+  dependencies:
+    "@react-navigation/elements": ^1.3.17
+    color: ^4.2.3
+    warn-once: ^0.1.0
+  peerDependencies:
+    "@react-navigation/native": ^6.0.0
+    react: "*"
+    react-native: "*"
+    react-native-gesture-handler: ">= 1.0.0"
+    react-native-reanimated: ">= 1.0.0"
+    react-native-safe-area-context: ">= 3.0.0"
+    react-native-screens: ">= 3.0.0"
+  checksum: d6589b015f31f06484308a400ac08a940217646b0bdae902b0a588b6dd5ff5b61130b4b5195b42181b3fa1932d9282915c597c55c442262369b592503ce4c938
   languageName: node
   linkType: hard
 
@@ -18968,6 +18998,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.isequal@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.isequal@npm:4.5.0"
+  checksum: dfdb2356db19631a4b445d5f37868a095e2402292d59539a987f134a8778c62a2810c2452d11ae9e6dcac71fc9de40a6fedcb20e2952a15b431ad8b29e50e28f
+  languageName: node
+  linkType: hard
+
 "lodash.isplainobject@npm:^4.0.6":
   version: 4.0.6
   resolution: "lodash.isplainobject@npm:4.0.6"
@@ -20470,6 +20507,7 @@ __metadata:
     "@graphql-codegen/typescript": ^3.0.2
     "@graphql-codegen/typescript-operations": ^3.0.2
     "@graphql-codegen/typescript-react-apollo": ^3.3.7
+    "@react-navigation/drawer": ^6.6.2
     "@react-navigation/material-top-tabs": ^6.6.2
     "@react-navigation/native": ^6.1.6
     "@react-navigation/native-stack": ^6.9.12
@@ -20484,6 +20522,7 @@ __metadata:
     react-native-gesture-handler: ~2.9.0
     react-native-maps: 1.3.2
     react-native-pager-view: 6.1.2
+    react-native-reanimated: ~2.14.4
     react-native-safe-area-context: 4.5.0
     react-native-screens: ~3.20.0
     react-native-tab-view: ^3.5.1
@@ -23437,6 +23476,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-reanimated@npm:~2.14.4":
+  version: 2.14.4
+  resolution: "react-native-reanimated@npm:2.14.4"
+  dependencies:
+    "@babel/plugin-transform-object-assign": ^7.16.7
+    "@babel/preset-typescript": ^7.16.7
+    convert-source-map: ^1.7.0
+    invariant: ^2.2.4
+    lodash.isequal: ^4.5.0
+    setimmediate: ^1.0.5
+    string-hash-64: ^1.0.3
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+    react: "*"
+    react-native: "*"
+  checksum: ec70f5d25c96d0bc7732bf992fd290e0bde8a0a5a05126188aa070d98505fb13a97507c804eba104f11c806f961ac957fa63f56f8d45a56b2d2bb9afef3f184a
+  languageName: node
+  linkType: hard
+
 "react-native-safe-area-context@npm:4.5.0":
   version: 4.5.0
   resolution: "react-native-safe-area-context@npm:4.5.0"
@@ -25590,6 +25648,13 @@ __metadata:
   version: 1.0.1
   resolution: "string-env-interpolation@npm:1.0.1"
   checksum: 410046e621e71678e71816377d799b40ba88d236708c0ad015114137fa3575f1b3cf14bfd63ec5eaa35ea43ac582308e60a8e1a3839a10f475b8db73470105bc
+  languageName: node
+  linkType: hard
+
+"string-hash-64@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "string-hash-64@npm:1.0.3"
+  checksum: ac175f71b383af1487ab16b4cc1b42b5302bea08bdf1cc1ea04bacb293fb9b35afc6c58260e1fc728627e7265519da01976822a188d493d7e7625b9628173ea3
   languageName: node
   linkType: hard
 

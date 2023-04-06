@@ -43,25 +43,27 @@ const Eventos: React.FC<EventosProps> = ({ navigation }) => {
       }
       renderItem={({ item }) => {
         return (
-          <Pressable
-            style={styles.presable}
-            onPress={() => {
-              navigation.navigate('Evento', { id: item.id })
-            }}
-          >
-            <View style={styles.container}>
-              <View>
-                <Image style={styles.img} source={{ uri: item.img }}></Image>
+          <View style={styles.contenedor}>
+            <Pressable
+              style={styles.presable}
+              onPress={() => {
+                navigation.navigate('Evento', { id: item.id })
+              }}
+            >
+              <View style={styles.container}>
+                <View>
+                  <Image style={styles.img} source={{ uri: item.img }}></Image>
+                </View>
+                <View style={styles.text}>
+                  <Text style={styles.texto}>{item.nombre}</Text>
+                  <Text>
+                    {item.fecha} - {item.Espacio.ubicacion}
+                  </Text>
+                  <Text style={styles.tipo}>{item.Tipo_evento.nombre}</Text>
+                </View>
               </View>
-              <View style={styles.text}>
-                <Text style={styles.texto}>{item.nombre}</Text>
-                <Text style={styles.hora}>
-                  {item.fecha} - {item.Espacio.ubicacion}
-                </Text>
-                <Text style={styles.tipo}>{item.Tipo_evento.nombre}</Text>
-              </View>
-            </View>
-          </Pressable>
+            </Pressable>
+          </View>
         )
       }}
     />
@@ -80,6 +82,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     padding: 25,
   },
+  contenedor: {
+    paddingLeft: 5,
+    paddingRight: 5,
+  },
   texto: {
     fontSize: 17,
     fontWeight: 'bold',
@@ -91,11 +97,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
-  floatlistcontainer: {
-    flex: 1,
-    padding: 10,
-  },
-  hora: {},
   img: {
     width: 70,
     height: 70,
