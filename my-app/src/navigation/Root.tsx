@@ -15,7 +15,6 @@ import EventosFavoritos from '../screens/EventosFavoritos'
 
 import { RootStackParamList, RootTabsParamList } from './types'
 
-// import Drawer from '../componetes/Deawer'
 const Drawer = createDrawerNavigator()
 
 const Stack = createNativeStackNavigator<RootStackParamList>()

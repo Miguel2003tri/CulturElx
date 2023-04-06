@@ -48,61 +48,66 @@ const Evento: React.FC<EventoProps> = ({ route, navigation }) => {
             <Image style={styles.img} source={{ uri: data.evento.img }} />
           </TouchableWithoutFeedback>
 
-          <View style={styles.tituloprecio}>
-            <Text style={styles.titulo}>{data.evento.nombre}</Text>
-            <Text style={styles.precio}>{data.evento.precio}€</Text>
-          </View>
+          <View style={styles.contenido}>
+            <View style={styles.tituloprecio}>
+              <Text style={styles.titulo}>{data.evento.nombre}</Text>
+              <Text style={styles.precio}>{data.evento.precio}€</Text>
+            </View>
 
-          <View style={styles.row}>
-            <TituloDescripcion
-              titulo={'Fecha'}
-              descripcion={data.evento.fecha}
-            />
-            <TituloDescripcion
-              titulo={'Pases'}
-              descripcion={data.evento.pases}
-            />
-          </View>
-
-          <View style={styles.row}>
-            <TituloDescripcion titulo={'Sala'} descripcion={data.evento.sala} />
-            <TituloDescripcion
-              titulo={'Duracion'}
-              descripcion={data.evento.duracion}
-            />
-          </View>
-
-          <View style={styles.row}>
-            <TituloDescripcion
-              titulo={'Ubicacion'}
-              descripcion={data.evento.Espacio.ubicacion}
-            />
-            <TituloDescripcion
-              titulo={'Director'}
-              descripcion={data.evento.director}
-            />
-          </View>
-          <View style={styles.row}>
-            <TituloDescripcion
-              titulo={'Sinopsis'}
-              descripcion={data.evento.sinopsis}
-            />
-          </View>
-          <View style={styles.row}>
-            <View style={styles.boton}>
-              <Button
-                title="Ver trailer"
-                onPress={() => {
-                  Linking.openURL(data.evento.trailer)
-                }}
+            <View style={styles.row}>
+              <TituloDescripcion
+                titulo={'Fecha'}
+                descripcion={data.evento.fecha}
+              />
+              <TituloDescripcion
+                titulo={'Pases'}
+                descripcion={data.evento.pases}
               />
             </View>
-          </View>
-          <View style={styles.row}>
-            <TituloDescripcion
-              titulo={'Reparto'}
-              descripcion={data.evento.reparto}
-            />
+
+            <View style={styles.row}>
+              <TituloDescripcion
+                titulo={'Sala'}
+                descripcion={data.evento.sala}
+              />
+              <TituloDescripcion
+                titulo={'Duracion'}
+                descripcion={data.evento.duracion}
+              />
+            </View>
+
+            <View style={styles.row}>
+              <TituloDescripcion
+                titulo={'Ubicacion'}
+                descripcion={data.evento.Espacio.ubicacion}
+              />
+              <TituloDescripcion
+                titulo={'Director'}
+                descripcion={data.evento.director}
+              />
+            </View>
+            <View style={styles.row}>
+              <TituloDescripcion
+                titulo={'Sinopsis'}
+                descripcion={data.evento.sinopsis}
+              />
+            </View>
+            <View style={styles.row}>
+              <View style={styles.boton}>
+                <Button
+                  title="Ver trailer"
+                  onPress={() => {
+                    Linking.openURL(data.evento.trailer)
+                  }}
+                />
+              </View>
+            </View>
+            <View style={styles.row}>
+              <TituloDescripcion
+                titulo={'Reparto'}
+                descripcion={data.evento.reparto}
+              />
+            </View>
           </View>
         </View>
       </ScrollView>
@@ -124,6 +129,11 @@ const Evento: React.FC<EventoProps> = ({ route, navigation }) => {
   )
 }
 const styles = StyleSheet.create({
+  contenido: {
+    marginTop: -24,
+    borderRadius: 24,
+    backgroundColor: '#fff',
+  },
   scroll: {
     flex: 1,
   },
@@ -147,7 +157,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   img: {
-    marginTop: 0,
     width,
     height: height / 2,
     resizeMode: 'cover',
