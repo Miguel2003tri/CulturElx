@@ -9,6 +9,7 @@ export type RootStackParamList = {
   Home: NavigatorScreenParams<RootTabsParamList>
   Espacio: { id: number }
   Evento: { id: number }
+  Favoritos: undefined
 }
 export type RootTabsParamList = {
   Espacios: undefined

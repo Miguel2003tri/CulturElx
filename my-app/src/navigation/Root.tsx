@@ -35,25 +35,20 @@ function MyStack() {
           }}
         />
         <Stack.Screen name="Espacio" component={Espacio} />
-        <Stack.Screen name="Evento" component={Evento} />
+        <Stack.Screen name="Evento" options={{headerShown:false}} component={Evento} />
         <Stack.Screen name="Favoritos" component={EventosFavoritos} />
-
       </Stack.Navigator>
-
-      </>
+    </>
   )
 }
 function MyDrawer() {
   return (
-
-      <Drawer.Navigator
-        drawerContent={(props) => (
-          <DrawerLateral {...props}></DrawerLateral>
-        )}
-        screenOptions={{ headerShown: false }}
-      >
-        <Drawer.Screen name="Root" component={MyStack} />
-      </Drawer.Navigator>
+    <Drawer.Navigator
+      drawerContent={(props) => <DrawerLateral {...props}></DrawerLateral>}
+      screenOptions={{ headerShown: false }}
+    >
+      <Drawer.Screen name="Root" component={MyStack} />
+    </Drawer.Navigator>
   )
 }
 
@@ -90,7 +85,6 @@ function MyTabs() {
             route.name === 'Espacios' ? 'blue' : undefined,
         })}
       />
-
     </Tabs.Navigator>
   )
 }
