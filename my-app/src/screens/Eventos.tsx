@@ -11,6 +11,7 @@ import {
 } from 'react-native'
 
 import { NetworkStatus, useEventosQuery } from '../api'
+import colors from '../lib/colors'
 import { EventosProps } from '../navigation/types'
 
 const Eventos: React.FC<EventosProps> = ({ navigation }) => {
@@ -71,12 +72,12 @@ const Eventos: React.FC<EventosProps> = ({ navigation }) => {
 }
 const styles = StyleSheet.create({
   presable: {
-    backgroundColor: '#F9BB23',
+    backgroundColor: colors.principal,
   },
   container: {
     flexDirection: 'row',
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.blanco,
     alignItems: 'center',
     justifyContent: 'center',
     fontWeight: 'bold',
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   tipo: {
-    color: '#804000',
+    color: colors.naranja,
   },
 })
 

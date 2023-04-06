@@ -12,6 +12,7 @@ import {
 } from 'react-native'
 
 import { NetworkStatus, useEventosQuery } from '../api'
+import colors from '../lib/colors'
 import { EspaciosFavoritosProps } from '../navigation/types'
 
 const EspaciosFavoritos: React.FC<EspaciosFavoritosProps> = ({
@@ -22,11 +23,9 @@ const EspaciosFavoritos: React.FC<EspaciosFavoritosProps> = ({
   })
 
   const [showAlert, setShowAlert] = useState(false)
-  const [avisoMostrado, setAvisoMostrado] = useState(false)
 
   const handleImagePress = () => {
     setShowAlert(true)
-    setAvisoMostrado(true)
   }
 
   const handleAlertDismiss = () => {
@@ -106,12 +105,12 @@ const EspaciosFavoritos: React.FC<EspaciosFavoritosProps> = ({
 }
 const styles = StyleSheet.create({
   presable: {
-    backgroundColor: '#F9BB23',
+    backgroundColor: colors.principal,
   },
   container: {
     flexDirection: 'row',
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.blanco,
     alignItems: 'center',
     justifyContent: 'center',
     fontWeight: 'bold',
@@ -142,7 +141,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   tipo: {
-    color: '#804000',
+    color: colors.naranja,
   },
   browser: {
     width: 50,
@@ -158,15 +157,15 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 16,
     right: 16,
-    backgroundColor: '#fff',
+    backgroundColor: colors.blanco,
     borderWidth: 1,
-    borderColor: '#999',
+    borderColor: colors.gris,
     borderRadius: 8,
     padding: 16,
     zIndex: 1,
   },
   dismissButton: {
-    color: '#007AFF',
+    color: colors.azul,
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 8,

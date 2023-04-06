@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   contenido: {
     marginTop: -24,
     borderRadius: 24,
-    backgroundColor: '#fff',
+    backgroundColor: colors.blanco,
   },
   scroll: {
     flex: 1,
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'orange',
+    backgroundColor: colors.principal,
   },
 })
 

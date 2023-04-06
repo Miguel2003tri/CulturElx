@@ -13,6 +13,7 @@ import {
 
 import { NetworkStatus, useEspacioQuery } from '../api'
 import Ubicacion from '../componetes/Ubicacion'
+import colors from '../lib/colors'
 import { EspacioProps } from '../navigation/types'
 
 const Espacio: React.FC<EspacioProps> = ({ route, navigation }) => {
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.blanco,
     alignItems: 'center',
     justifyContent: 'center',
     fontWeight: 'bold',
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
   },
   map: {
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: colors.blanco,
   },
   img: {
     width: 70,
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   tipo: {
-    color: '#804000',
+    color: colors.naranja,
   },
 })
 

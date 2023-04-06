@@ -61,13 +61,13 @@ function MyTabs() {
     <Tabs.Navigator
       screenOptions={({ route }) => ({
         tabBarLabel: route.name,
-        tabBarInactiveTintColor: 'gray',
+        tabBarInactiveTintColor: colors.gris,
         tabBarLabelStyle: {
           fontSize: 16,
           fontWeight: 'bold',
         },
         tabBarStyle: {
-          backgroundColor: '#F9BB23',
+          backgroundColor: colors.principal,
         },
       })}
     >

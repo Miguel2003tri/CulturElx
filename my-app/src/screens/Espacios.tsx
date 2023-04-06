@@ -11,6 +11,7 @@ import {
 } from 'react-native'
 
 import { NetworkStatus, useEspaciosQuery } from '../api'
+import colors from '../lib/colors'
 import { EspaciosProps } from '../navigation/types'
 
 const Espacios: React.FC<EspaciosProps> = ({ navigation }) => {
@@ -84,7 +85,7 @@ const Espacios: React.FC<EspaciosProps> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.blanco,
     alignItems: 'center',
     justifyContent: 'center',
     fontWeight: 'bold',
