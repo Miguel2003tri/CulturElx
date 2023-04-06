@@ -17,10 +17,11 @@ import { ScrollView } from 'react-native-gesture-handler'
 
 import { useEventoQuery } from '../api'
 import TituloDescripcion from '../componetes/TituloDescripcion'
+import colors from '../lib/colors'
 import { EventoProps } from '../navigation/types'
 const { width, height } = Dimensions.get('window')
 
-const Evento: React.FC<EventoProps> = ({ route,navigation }) => {
+const Evento: React.FC<EventoProps> = ({ route, navigation }) => {
   const { id } = route.params
   const { data, loading } = useEventoQuery({ variables: { id } })
 
@@ -134,7 +135,7 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.blanco,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -146,10 +147,10 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   img: {
-    marginTop:20,
+    marginTop: 0,
     width,
     height: height / 2,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
   },
   tituloprecio: {
     flexDirection: 'row',
@@ -166,7 +167,7 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.8)',
+    backgroundColor: colors.fondoDeFoto,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -197,14 +198,15 @@ const styles = StyleSheet.create({
   modalCloseText: {
     fontSize: 18,
     textAlign: 'center',
-    borderRadius: 10,
+    borderRadius: 5,
     overflow: 'hidden',
-    width: 20,
-    height: 20,
-    lineHeight: 20,
+    width: 30,
+    height: 30,
+    lineHeight: 28,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'orange',
   },
 })
 

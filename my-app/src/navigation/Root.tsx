@@ -1,8 +1,12 @@
 import 'react-native-gesture-handler'
+import React from 'react'
 
+import { createDrawerNavigator } from '@react-navigation/drawer'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
+import DrawerLateral from '../componetes/DrawerLateral'
+import colors from '../lib/colors'
 import Espacio from '../screens/Espacio'
 import Espacios from '../screens/Espacios'
 import Evento from '../screens/Evento'
@@ -10,11 +14,8 @@ import Eventos from '../screens/Eventos'
 import EventosFavoritos from '../screens/EventosFavoritos'
 
 import { RootStackParamList, RootTabsParamList } from './types'
-import { View, Text } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+
 // import Drawer from '../componetes/Deawer'
-import { createDrawerNavigator } from '@react-navigation/drawer'
-import DrawerLateral from '../componetes/DrawerLateral'
 const Drawer = createDrawerNavigator()
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -24,7 +25,7 @@ function MyStack() {
   return (
     <>
       <Stack.Navigator
-        screenOptions={{ headerStyle: { backgroundColor: '#F9BB23' } }}
+        screenOptions={{ headerStyle: { backgroundColor: colors.principal } }}
       >
         <Stack.Screen
           name="Home"
@@ -35,25 +36,24 @@ function MyStack() {
           }}
         />
         <Stack.Screen name="Espacio" component={Espacio} />
-        <Stack.Screen name="Evento" component={Evento} />
+        <Stack.Screen
+          name="Evento"
+          component={Evento}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="Favoritos" component={EventosFavoritos} />
-
       </Stack.Navigator>
-
-      </>
+    </>
   )
 }
 function MyDrawer() {
   return (
-
-      <Drawer.Navigator
-        drawerContent={(props) => (
-          <DrawerLateral {...props}></DrawerLateral>
-        )}
-        screenOptions={{ headerShown: false }}
-      >
-        <Drawer.Screen name="Root" component={MyStack} />
-      </Drawer.Navigator>
+    <Drawer.Navigator
+      drawerContent={(props) => <DrawerLateral {...props}></DrawerLateral>}
+      screenOptions={{ headerShown: false }}
+    >
+      <Drawer.Screen name="Root" component={MyStack} />
+    </Drawer.Navigator>
   )
 }
 
@@ -90,7 +90,6 @@ function MyTabs() {
             route.name === 'Espacios' ? 'blue' : undefined,
         })}
       />
-
     </Tabs.Navigator>
   )
 }
