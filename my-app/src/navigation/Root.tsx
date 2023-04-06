@@ -29,7 +29,7 @@ function MyStack() {
       />
       <Stack.Screen name="Espacio" component={Espacio} />
       <Stack.Screen name="Evento" component={Evento} />
-      <Stack.Screen name="EventosFavoritos" component={EventosFavoritos} />
+      <Stack.Screen name="Eventos Favoritos" component={EventosFavoritos} />
     </Stack.Navigator>
   )
 }
@@ -67,12 +67,12 @@ function MyTabs() {
         })}
       />
       <Tabs.Screen
-        name="EventosFavoritos"
+        name="Eventos Favoritos"
         component={EventosFavoritos}
         options={({ route }) => ({
-          tabBarLabel: 'EventosFavoritos',
+          tabBarLabel: 'Eventos Favoritos',
           tabBarActiveBackgroundColor:
-            route.name === 'EventosFavoritos' ? 'blue' : undefined,
+            route.name === 'Eventos Favoritos' ? 'blue' : undefined,
         })}
       />
     </Tabs.Navigator>
