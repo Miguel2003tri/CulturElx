@@ -24,7 +24,7 @@ function MyStack() {
   return (
     <>
       <Stack.Navigator
-        screenOptions={{ headerStyle: { backgroundColor: 'orange' } }}
+        screenOptions={{ headerStyle: { backgroundColor: '#F9BB23' } }}
       >
         <Stack.Screen
           name="Home"
@@ -68,7 +68,7 @@ function MyTabs() {
           fontWeight: 'bold',
         },
         tabBarStyle: {
-          backgroundColor: 'orange',
+          backgroundColor: '#F9BB23',
         },
       })}
     >
